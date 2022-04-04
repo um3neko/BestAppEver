@@ -39,7 +39,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Command="{Binding hideLeftBar}"
-                Content="YoYoYo" />
+                Content="Anime" />
             <TextBlock
                 Width="20" 
                 Height="15"
