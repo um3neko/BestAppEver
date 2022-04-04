@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="WpfApp2.View.SecondPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+    xmlns:cont="clr-namespace:WpfApp2.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp2.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:WpfApp2.ViewModel"
+    Title="SecondPage"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <vm:SecondWindowViewModel />
+    </Page.DataContext>
+
+    <Grid>
+
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button
+                    Width="75"
+                    Command="{Binding createGoal}"
+                    Content="Add" />
+
+            </StackPanel>
+
+
+            <Grid Grid.Row="1" Grid.RowSpan="2">
+                <ListView
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Foreground="{x:Null}"
+                    ItemsSource="{Binding GetGoals}">
+                    
+                </ListView>
+                
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Page>

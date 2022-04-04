@@ -1,0 +1,89 @@
+﻿<Page
+    x:Class="WpfApp2.View.FirstPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp2.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="FirstPage"
+    d:DesignHeight="800"
+    d:DesignWidth="1050"
+    mc:Ignorable="d">
+    <Grid >
+        <Image
+            Opacity="0.6"
+            Source="/View/09.jpg"
+            Stretch="Fill" />
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.20*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="0.20*" />
+            </Grid.ColumnDefinitions>
+
+
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Visible">
+                <StackPanel
+                    Grid.Column="1"
+                    Height="2990"
+                    Background="Silver"
+                    Opacity="1">
+
+                    <Grid Background="Silver" ShowGridLines="True">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="160" />
+                            <RowDefinition Height="400" />
+                            <RowDefinition Height="400" />
+                            <RowDefinition Height="400" />
+                            <RowDefinition Height="400" />
+                            <RowDefinition Height="400" />
+                            <RowDefinition Height="400" />
+                            <RowDefinition Height="400" />
+                            <RowDefinition Height="400" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*" />
+                            <ColumnDefinition Width="0.3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.4*" />
+                                <ColumnDefinition Width="0.6*" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Grid.Column="0"
+                                Margin="20"
+                                Source="/View/09.jpg"
+                                Stretch="Fill" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Height="35"
+                                Margin="0,20,0,0"
+                                VerticalAlignment="Top"
+                                FontSize="26"
+                                Text="Name" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Height="70"
+                                Margin="0,0,0,20"
+                                VerticalAlignment="Bottom"
+                                Text="Description" />
+                        </Grid>
+                        <Button Grid.Column="1" Margin="45" Content="Редактировать"/>
+
+                        <Image Source="\Resources\FirstPage\eromanga.png" Grid.Row="1"/>
+                        <Image Source="\Resources\FirstPage\eromanga.png" Grid.Row="2"/>
+                        <Image Source="\Resources\FirstPage\eromanga.png" Grid.Row="3"/>
+                        <Image Source="\Resources\FirstPage\eromanga.png" Grid.Row="4"/>
+                        <Image Source="\Resources\FirstPage\eromanga.png" Grid.Row="5"/>
+                        
+
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
+    </Grid>
+
+</Page>

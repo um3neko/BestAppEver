@@ -1,0 +1,81 @@
+﻿<Window
+    x:Class="WpfApp2.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp2"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:WpfApp2.ViewModel"
+    Title="MainWindow"
+    Width="1200"
+    Height="800"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
+
+    <Grid >
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FBC2EB"/>
+                <GradientStop Color="#78A3EB" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding StackPanelWidth}" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+
+        <Grid Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button
+                Width="50"
+                Height="50"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Command="{Binding hideLeftBar}"
+                Content="YoYoYo" />
+            <TextBlock
+                Width="20" 
+                Height="15"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                Text="{Binding StackPanelWidth}" />
+
+
+            <StackPanel 
+                
+                x:Name="StackLeftPanel" 
+                Grid.Row="1">
+
+                <Button
+                    Height="25"
+                    Command="{Binding firstPage_Click}"
+                    Content="First But" />
+                <Button
+                    Height="25"
+                    Command="{Binding secondPage_Click}"
+                    Content="Second But" />
+                <Button
+                    Height="25"
+                    Command="{Binding thirdPage_Click}"
+                    Content="Third But" />
+
+            </StackPanel>
+
+        </Grid>
+
+        <Frame
+            
+            Grid.Column="1"
+           
+            Content="{Binding CurrentPage}"
+            NavigationUIVisibility="Hidden"
+            Opacity="{Binding CurrentOpacity}" />
+    </Grid>
+</Window>
