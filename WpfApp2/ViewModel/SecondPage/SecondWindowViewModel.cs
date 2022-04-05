@@ -10,7 +10,7 @@ using System.Windows.Input;
 using WpfApp2.Control;
 using WpfApp2.ControlViewModel;
 using WpfApp2.Model;
-using WpfApp2.ViewModel.SecondPage.ControlFactory;
+
 
 namespace WpfApp2.ViewModel
 {
@@ -42,7 +42,6 @@ namespace WpfApp2.ViewModel
         {
             
             GetGoals.Add(new Goals());
-           
             
         }
     }

@@ -65,6 +65,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="XamlAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=20a987d8023d9690, processorArchitecture=MSIL">
+      <HintPath>..\packages\XamlAnimatedGif.2.0.2\lib\net45\XamlAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -72,25 +75,32 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ControlViewModel\GoalControlViewModel.cs" />
+    <Compile Include="ControlViewModel\TimerViewModel\TimerViewModel.cs" />
     <Compile Include="Control\Goals.xaml.cs">
       <DependentUpon>Goals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Timer\Timer.xaml.cs">
+      <DependentUpon>Timer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\App.cs" />
     <Compile Include="Model\Goal.cs" />
     <Compile Include="Model\Serializer.cs" />
     <Compile Include="Model\Session.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="ViewModel\AddGoal\AddGoalViewModel.cs" />
     <Compile Include="ViewModel\FirstPage\FirstPageViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\SecondPage\ControlFactory\GoalFactory.cs" />
-    <Compile Include="ViewModel\SecondPage\ControlFactory\IGoalFactory.cs" />
     <Compile Include="ViewModel\SecondPage\SecondWindowViewModel.cs" />
+    <Compile Include="ViewModel\StudySessionViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelPageBase.cs" />
+    <Compile Include="View\AddGoal\AddGoalView.xaml.cs">
+      <DependentUpon>AddGoalView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\FirstPage\FirstPage.xaml.cs">
       <DependentUpon>FirstPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SecondPage\SecondPage.xaml.cs">
+    <Compile Include="View\SecondPage\SecondPage.cs">
       <DependentUpon>SecondPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\StudySession.xaml.cs">
@@ -100,6 +110,10 @@
       <DependentUpon>ThirdPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Control\Goals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\Timer\Timer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -115,6 +129,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddGoal\AddGoalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\FirstPage\FirstPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,6 +204,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModel\ThirdPage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\StudySession\numberblat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\StudySession\Strelka.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

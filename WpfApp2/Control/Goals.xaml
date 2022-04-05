@@ -9,11 +9,11 @@
     d:DesignHeight="150"
     d:DesignWidth="400"
     mc:Ignorable="d">
-    
+
     <UserControl.DataContext>
         <vm:GoalControlViewModel />
     </UserControl.DataContext>
-
+    
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -35,11 +35,11 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Image
+        <!--<Image
             Grid.Row="0"
             Grid.RowSpan="2"
             Grid.Column="0"
-            Source="\Resources\Contorl\GoalControl\comboburst-1.png" />
+            Source="\Resources\Contorl\GoalControl\comboburst-1.png" />-->
         <TextBlock
             Grid.Column="1"
             Grid.ColumnSpan="2"
@@ -106,12 +106,24 @@
             <TextBlock
                 x:Name="LVL"
                 Grid.Row="1"
+                Margin="50,0,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Margin="50,0,0,0"
                 FontSize="16"
                 Text="{Binding LVL}" />
+            <Button
+                
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Button" Click="Button_Click" />
         </Grid>
+        <Button
+            Grid.Column="1"
+            Width="0"
+            Margin="99,88,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Button" />
 
     </Grid>
 </UserControl>

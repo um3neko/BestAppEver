@@ -13,25 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp2.ControlViewModel;
-using WpfApp2.View;
 
 namespace WpfApp2.Control
 {
     /// <summary>
-    /// Логика взаимодействия для Goals.xaml
+    /// Логика взаимодействия для Timer.xaml
     /// </summary>
-    public partial class Goals : UserControl
+    public partial class Timer : UserControl
     {
-        public Goals()
+        public Timer()
         {
             InitializeComponent();
-            DataContext = new GoalControlViewModel();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            StudySession studySession = new StudySession();
-            studySession.Show();
+            DataContext = new TimerViewModel();
         }
     }
 }

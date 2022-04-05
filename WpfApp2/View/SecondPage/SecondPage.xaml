@@ -19,7 +19,6 @@
 
     <Grid>
 
-
         <Grid>
 
             <Grid.RowDefinitions>
@@ -28,27 +27,33 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.2*"/>
+            </Grid.ColumnDefinitions>
+
 
             <StackPanel Grid.Column="1" Orientation="Horizontal">
                 <Button
-                    Width="75"
+                    Width="64"
                     Command="{Binding createGoal}"
                     Content="Add" />
 
             </StackPanel>
 
 
-            <Grid Grid.Row="1" Grid.RowSpan="2">
-                <ListView
+            <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
+                <ListView 
+                    
                     Background="{x:Null}"
                     BorderBrush="{x:Null}"
                     Foreground="{x:Null}"
                     ItemsSource="{Binding GetGoals}">
                     
                 </ListView>
-                
-
             </Grid>
+            
 
         </Grid>
     </Grid>

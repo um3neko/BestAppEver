@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp2.ViewModel.SecondPage.ControlFactory
+namespace WpfApp2.ViewModel
 {
-    internal interface IGoalFactory
+    internal class StudySessionViewModel
     {
-        object CreateGoal();
     }
 }
