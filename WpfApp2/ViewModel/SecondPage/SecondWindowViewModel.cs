@@ -1,48 +1,51 @@
-﻿using GalaSoft.MvvmLight.Command;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using GalaSoft.MvvmLight.Command;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WpfApp2.Control;
-using WpfApp2.ControlViewModel;
 using WpfApp2.Model;
+using WpfApp2.View.AddGoal;
 
 
-namespace WpfApp2.ViewModel
+namespace WpfApp2.ViewModel.SecondPage
 {
     internal class SecondWindowViewModel : ViewModelPageBase
     {
+        private Page openedGoal;
+        
 
-        public SecondWindowViewModel()
+        public SecondWindowViewModel(List<Goal> goals)
         {
-            GetGoals = new ObservableCollection<Goals>();
+            
+            openedGoal = new OpenedGoal();
         }
 
-        private ObservableCollection<Goals> _goalsCollection;
-
-        public ObservableCollection<Goals> GetGoals
+        public ListView ListViewForGoalCollection{ get; set; }
+        
+        private static ObservableCollection<Goals> _goalsCollection;
+        
+        public static ObservableCollection<Goals> GetGoalsCollectionControl
         {
             get { return _goalsCollection; }
             set { _goalsCollection = value; }
         }
 
-        public ICommand createGoal
+        public ICommand CreateGoalCommand
         {
             get
             {
-                return new RelayCommand(() => CreateControlGoals());
+                return new RelayCommand(() => GetGoalsCollectionControl.Add(new Goals()));
             }
         }
+        
 
-        private void CreateControlGoals()
+        public ICommand OpenGoalCommand
         {
-            
-            GetGoals.Add(new Goals());
-            
+            get
+            {
+                return new RelayCommand(() => Anime(openedGoal));
+            }
         }
     }
 

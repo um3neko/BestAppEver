@@ -8,19 +8,18 @@
     xmlns:local="clr-namespace:WpfApp2.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:WpfApp2.ViewModel"
+    xmlns:secondPage="clr-namespace:WpfApp2.ViewModel.SecondPage"
     Title="SecondPage"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
 
     <Page.DataContext>
-        <vm:SecondWindowViewModel />
+        <secondPage:SecondWindowViewModel />
     </Page.DataContext>
 
     <Grid>
-
         <Grid>
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="25" />
                 <RowDefinition />
@@ -28,32 +27,41 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.2*"/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="0.2*" />
             </Grid.ColumnDefinitions>
 
 
             <StackPanel Grid.Column="1" Orientation="Horizontal">
                 <Button
                     Width="64"
-                    Command="{Binding createGoal}"
+                    Command="{Binding CreateGoalCommand}"
                     Content="Add" />
 
             </StackPanel>
 
 
-            <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
+            <StackPanel
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"> 
                 <ListView 
-                    
+                    x:Name="ListViewForGoals"
+                    HorizontalContentAlignment="Center"
                     Background="{x:Null}"
                     BorderBrush="{x:Null}"
-                    Foreground="{x:Null}"
                     ItemsSource="{Binding GetGoals}">
-                    
                 </ListView>
-            </Grid>
+               
+
+            </StackPanel>
+                
+                
+
             
+
 
         </Grid>
     </Grid>

@@ -10,21 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp2.ViewModel.AddGoal;
 
 namespace WpfApp2.View.AddGoal
 {
     /// <summary>
-    /// Логика взаимодействия для AddGoalView.xaml
+    /// Логика взаимодействия для OpenedGoal.xaml
     /// </summary>
-    public partial class AddGoalView : Window
+    public partial class OpenedGoal : Page
     {
-        public AddGoalView()
+        public OpenedGoal()
         {
             InitializeComponent();
             DataContext = new AddGoalViewModel();
-
         }
     }
 }

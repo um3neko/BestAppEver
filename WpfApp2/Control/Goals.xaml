@@ -6,14 +6,14 @@
     xmlns:local="clr-namespace:WpfApp2.Control"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:WpfApp2.ControlViewModel"
-    d:DesignHeight="150"
+    d:DesignHeight="150" 
     d:DesignWidth="400"
     mc:Ignorable="d">
 
     <UserControl.DataContext>
         <vm:GoalControlViewModel />
     </UserControl.DataContext>
-    
+
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -34,12 +34,19 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-
-        <!--<Image
+        
+        <TextBlock Grid.Row ="1"
+                   Grid.Column="0"
+                   FontSize="12"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Text="{Binding DateOfCreation}"
+            />
+        <Image
             Grid.Row="0"
-            Grid.RowSpan="2"
+            Grid.RowSpan="1"
             Grid.Column="0"
-            Source="\Resources\Contorl\GoalControl\comboburst-1.png" />-->
+            Source="\Resources\Contorl\GoalControl\comboburst-1.png" />
         <TextBlock
             Grid.Column="1"
             Grid.ColumnSpan="2"
@@ -87,7 +94,7 @@
             Grid.ColumnSpan="2"
             Margin="0,25,0,0"
             Foreground="#FF4DE29A"
-            Value="50" />
+            Value="1" />
 
         <Grid Grid.Row="0" Grid.Column="3">
             <Grid.RowDefinitions>
@@ -112,10 +119,10 @@
                 FontSize="16"
                 Text="{Binding LVL}" />
             <Button
-                
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="Button" Click="Button_Click" />
+                Click="Button_Click"
+                Content="Button" />
         </Grid>
         <Button
             Grid.Column="1"

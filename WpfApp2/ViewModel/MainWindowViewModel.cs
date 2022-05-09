@@ -1,21 +1,50 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using WpfApp2.Data.GoalsCollection;
+using WpfApp2.Model;
+using WpfApp2.ViewModel.SecondPage;
+using WpfApp2.Model.Saving;
 
 namespace WpfApp2.ViewModel
 {
     internal class MainWindowViewModel : ViewModelPageBase
     {
+        
+
         private Page firstPage;
         private Page secondPage;
         private Page thirdPage;
+        
+        /// <summary>
+        /// CTOR
+        /// </summary>
+        public MainWindowViewModel()
+        {
+            GoalData goalData = GoalData.Instance;
 
+            firstPage = new View.FirstPage();
+            secondPage = new View.SecondPage();
+            thirdPage = new View.ThirdPage();
+            _stackPanelWidth = 150;
+            CurrentOpacity = 1;
+
+        }
+
+
+        /// <summary>
+        /// ANIMATION
+        /// </summary>
+        /// <param name="width"></param>
         private async void Anime3(int width)
         {
             await Task.Factory.StartNew(() =>
@@ -57,16 +86,26 @@ namespace WpfApp2.ViewModel
             set { _currentMargin = value; OnPropertyChanged(); }
         }
 
-        public MainWindowViewModel()
+        /// <summary>
+        /// WindowClosing
+        /// </summary>
+        public ICommand WindowClosing
         {
-            firstPage = new View.FirstPage();
-            secondPage = new View.SecondPage();
-            thirdPage = new View.ThirdPage();
-            _stackPanelWidth = 150;
-            
-            CurrentOpacity = 1;
-               
+            get
+            {
+                return new RelayCommand<CancelEventArgs>(
+                    (args) =>
+                    {
+                        
+                        MessageBox.Show("Ok");
+                    });
+            }
         }
+
+
+        /// <summary>
+        /// PAGES OPEN COMMANDS
+        /// </summary>
         public ICommand firstPage_Click
         {
                 get

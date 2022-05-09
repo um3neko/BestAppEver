@@ -4,11 +4,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace WpfApp2.Model
 {
+    [Serializable]
     internal class Goal
     {
+        
+
+        public Page GoalPage { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
 

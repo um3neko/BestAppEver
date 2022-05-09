@@ -35,7 +35,7 @@
         <Image
             x:Name="Blat"
             Panel.ZIndex="0"
-            Opacity="0.8"
+            Opacity="0.6"
             Source="\Resources\StudySession\numberblat.png" />
     </Grid>
 </UserControl>

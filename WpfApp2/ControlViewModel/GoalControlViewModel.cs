@@ -12,29 +12,20 @@ namespace WpfApp2.ControlViewModel
 {
     internal class GoalControlViewModel : ViewModelBase
     {
-        public Goal _Goal { get; set; }
+        public Goal Goal { get; }
+        public string Name { get; }
+        public string Description { get; }
+        public int Sessions { get; }
+        public int Time { get; }
+        public int CurrentTimeGoal { get; }
+        public int LVL { get; }
+        public App Application { get; }
+        public DateTime DateOfCreation { get; }
         
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public int Sessions { get; set; }
-        public int Time { get; set; }
-        public int CurrentTimeGoal { get; set; }
-        public int LVL { get; set; }
-        public App Application { get; set; }
-
-       
-
         public GoalControlViewModel()
         {
-            _Goal= new Goal();
-
-            Name = _Goal.Name;
-            Description = _Goal.Description;
-            Sessions = _Goal.Sessions;
-            Time = _Goal.Time;
-            CurrentTimeGoal = _Goal.CurrentTimeGoal;
-            LVL = _Goal.LVL;
             
+            this.DateOfCreation = DateTime.Now;
         }
     }
 }

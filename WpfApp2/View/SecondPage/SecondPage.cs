@@ -13,7 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp2.Control;
+using WpfApp2.Data.GoalsCollection;
 using WpfApp2.ViewModel;
+using WpfApp2.ViewModel.SecondPage;
 
 namespace WpfApp2.View
 {
@@ -25,7 +27,7 @@ namespace WpfApp2.View
         public SecondPage()
         {
             InitializeComponent();
-            DataContext = new SecondWindowViewModel();
+            DataContext = new SecondWindowViewModel(GoalData.Goals);
             
             
         }

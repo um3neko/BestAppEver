@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp2.ControlViewModel;
+using WpfApp2.Model;
 using WpfApp2.View;
 
 namespace WpfApp2.Control
