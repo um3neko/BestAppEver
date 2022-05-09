@@ -9,8 +9,10 @@ using WpfApp2.Model.Saving;
 
 namespace WpfApp2.Data.GoalsCollection
 {
+    [Serializable]
     internal class GoalData
     {
+        
         private static GoalData _instance;
         
         private GoalData()

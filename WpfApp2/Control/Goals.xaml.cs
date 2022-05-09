@@ -24,12 +24,11 @@ namespace WpfApp2.Control
     /// </summary>
     public partial class Goals : UserControl
     {
-        public Goals()
+        public Goals(Goal goal)
         {
             InitializeComponent();
-            DataContext = new GoalControlViewModel();
+            DataContext = new GoalControlViewModel(goal);
         }
-
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {

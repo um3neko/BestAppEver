@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -30,7 +31,13 @@ namespace WpfApp2.ViewModel
         /// </summary>
         public MainWindowViewModel()
         {
-            GoalDataObject = GoalData.Instance;
+            //При запуске считывает XML
+            GoalData.GoalsSingletonCollection = SerializationXml.ReadFromXml();
+
+            if (GoalData.GoalsSingletonCollection == null)
+            {
+                GoalData.GoalsSingletonCollection = new List<Goal>();
+            }
 
             firstPage = new View.FirstPage();
             secondPage = new View.SecondPage();
@@ -96,7 +103,7 @@ namespace WpfApp2.ViewModel
                 return new RelayCommand<CancelEventArgs>(
                     (args) =>
                     {
-                        MessageBox.Show("Ok");
+                        SerializationXml.SaveToXml(GoalData.GoalsSingletonCollection);
                     });
             }
         }

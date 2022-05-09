@@ -41,20 +41,16 @@
 
             </StackPanel>
 
-
             <StackPanel
                 Grid.Row="1"
                 Grid.RowSpan="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="3">
                 <ListView
-                    x:Name="ListViewForGoals"
                     HorizontalContentAlignment="Center"
                     Background="{x:Null}"
                     BorderBrush="{x:Null}"
                     ItemsSource="{Binding GetGoalsCollectionControl}" />
-
-
             </StackPanel>
 
 

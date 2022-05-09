@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GalaSoft.MvvmLight.Command;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -15,27 +16,24 @@ namespace WpfApp2.ViewModel.SecondPage
     internal class SecondWindowViewModel : ViewModelPageBase
     {
         private Page openedGoal;
-        private Goal goal;
-        private Goals goalContol;
-
-
-
         public SecondWindowViewModel()
         {
             GetGoalsCollectionControl = new ObservableCollection<Goals>();
+
+            if (GoalData.GoalsSingletonCollection != null)
+            {
+                foreach (var goal in GoalData.GoalsSingletonCollection)
+                {
+                    var goalControl = new Goals(goal);
+                    GetGoalsCollectionControl.Add(goalControl);
+                }
+            }
+            
+              
         }
 
-       
         
-        private static ObservableCollection<Goals> _goalsCollection;
-        
-        public static ObservableCollection<Goals> GetGoalsCollectionControl
-        {
-            get { return _goalsCollection; }
-            set { _goalsCollection = value;  }
-        }
-
-
+        public static ObservableCollection<Goals> GetGoalsCollectionControl { get; private set; }
 
         public ICommand CreateGoalCommand
         {
@@ -43,9 +41,11 @@ namespace WpfApp2.ViewModel.SecondPage
             {
                 return new RelayCommand(() =>
                 {
-                    goal = new Goal();
+                    
+                    var goal = new Goal();
                     GoalData.GoalsSingletonCollection.Add(goal);
-                    goalContol = new Goals();
+
+                    var goalContol = new Goals(goal);
                     GetGoalsCollectionControl.Add(goalContol);
 
                 });

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using WpfApp2.Control;
 
@@ -12,7 +13,7 @@ namespace WpfApp2.Model
     [Serializable]
     public class Goal
     {
-        public Page GoalPage { get; set; }
+        
         public string Name { get; set; }
         public string Description { get; set; }
 
@@ -24,17 +25,22 @@ namespace WpfApp2.Model
 
         public int LVL { get; set; }
 
+        public DateTime DateOfCreation { get; set; }
+
 
         public Goal()
         {
-            GoalPage = new Page();
-            Name = "Exaple";
-            Description = "Exaple";
+            Name = "EXAMPLE NAME GOAL";
+            Description = "Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple";
             CurrentTimeGoal = 0;
             Sessions = 0;
             Time = 0;
             LVL = 1;
+            DateOfCreation = DateTime.Now;
+           
         }
+
+        
         
 
     }
