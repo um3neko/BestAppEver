@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using WpfApp2.ControlViewModel;
 using WpfApp2.Model;
 using WpfApp2.View;
+using WpfApp2.ViewModel.AddGoal;
 
 namespace WpfApp2.Control
 {
@@ -29,10 +30,10 @@ namespace WpfApp2.Control
             DataContext = new GoalControlViewModel();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            StudySession studySession = new StudySession();
-            studySession.Show();
+            
         }
     }
 }

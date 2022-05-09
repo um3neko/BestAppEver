@@ -5,14 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using WpfApp2.Control;
 
 namespace WpfApp2.Model
 {
     [Serializable]
-    internal class Goal
+    public class Goal
     {
-        
-
         public Page GoalPage { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -25,10 +24,13 @@ namespace WpfApp2.Model
 
         public int LVL { get; set; }
 
-        public App Application { get; set; }
 
         public Goal()
         {
+            GoalPage = new Page();
+            Name = "Exaple";
+            Description = "Exaple";
+            CurrentTimeGoal = 0;
             Sessions = 0;
             Time = 0;
             LVL = 1;

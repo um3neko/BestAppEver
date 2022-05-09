@@ -12,7 +12,7 @@ namespace WpfApp2.ControlViewModel
 {
     internal class GoalControlViewModel : ViewModelBase
     {
-        public Goal Goal { get; }
+        public Goal Goal { get; set; }
         public string Name { get; }
         public string Description { get; }
         public int Sessions { get; }
@@ -24,7 +24,6 @@ namespace WpfApp2.ControlViewModel
         
         public GoalControlViewModel()
         {
-            
             this.DateOfCreation = DateTime.Now;
         }
     }

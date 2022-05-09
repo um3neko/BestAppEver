@@ -27,8 +27,7 @@ namespace WpfApp2.View
         public SecondPage()
         {
             InitializeComponent();
-            DataContext = new SecondWindowViewModel(GoalData.Goals);
-            
+            DataContext = new SecondWindowViewModel();
             
         }
 

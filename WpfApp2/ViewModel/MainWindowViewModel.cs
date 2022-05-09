@@ -19,7 +19,7 @@ namespace WpfApp2.ViewModel
 {
     internal class MainWindowViewModel : ViewModelPageBase
     {
-        
+        public GoalData GoalDataObject;
 
         private Page firstPage;
         private Page secondPage;
@@ -30,7 +30,7 @@ namespace WpfApp2.ViewModel
         /// </summary>
         public MainWindowViewModel()
         {
-            GoalData goalData = GoalData.Instance;
+            GoalDataObject = GoalData.Instance;
 
             firstPage = new View.FirstPage();
             secondPage = new View.SecondPage();
@@ -96,7 +96,6 @@ namespace WpfApp2.ViewModel
                 return new RelayCommand<CancelEventArgs>(
                     (args) =>
                     {
-                        
                         MessageBox.Show("Ok");
                     });
             }

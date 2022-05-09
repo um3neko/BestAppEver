@@ -15,7 +15,7 @@ namespace WpfApp2.Data.GoalsCollection
         
         private GoalData()
         {
-            _listGoal = SerializationXml.ReadFromXml();
+            GoalsSingletonCollection = new List<Goal>();
         }
         public static GoalData Instance => 
             _instance ?? (_instance = new GoalData());
@@ -23,7 +23,7 @@ namespace WpfApp2.Data.GoalsCollection
 
         private static List<Goal> _listGoal;
 
-        public static List<Goal> Goals { get; }
+        public static List<Goal> GoalsSingletonCollection { get; set; }
     
 
     }
