@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp2.Model;
 using WpfApp2.ViewModel.AddGoal;
 
 namespace WpfApp2.View.AddGoal
@@ -21,10 +22,10 @@ namespace WpfApp2.View.AddGoal
     /// </summary>
     public partial class OpenedGoal : Page
     {
-        public OpenedGoal()
+        public OpenedGoal(Goal goal)
         {
             InitializeComponent();
-            DataContext = new AddGoalViewModel();
+            DataContext = new AddGoalViewModel(goal);
         }
     }
 }

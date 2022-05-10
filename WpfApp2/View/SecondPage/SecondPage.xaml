@@ -24,14 +24,22 @@
                 <RowDefinition Height="25" />
                 <RowDefinition />
                 <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.2*" />
                 <ColumnDefinition />
                 <ColumnDefinition Width="0.2*" />
+
             </Grid.ColumnDefinitions>
 
+            <Frame
+                Grid.Row="3"
+                Grid.Column="1"
+                Content="{Binding CurrentPage}"
+                NavigationUIVisibility="Hidden"
+                Opacity="{Binding CurrentOpacity}" />
 
             <StackPanel Grid.Column="1" Orientation="Horizontal">
                 <Button
@@ -41,22 +49,38 @@
 
             </StackPanel>
 
-            <StackPanel
+
+
+            <ScrollViewer
                 Grid.Row="1"
                 Grid.RowSpan="2"
-                Grid.Column="0"
                 Grid.ColumnSpan="3">
-                <ListView
-                    HorizontalContentAlignment="Center"
-                    Background="{x:Null}"
-                    BorderBrush="{x:Null}"
-                    ItemsSource="{Binding GetGoalsCollectionControl}" />
-            </StackPanel>
 
 
+                <StackPanel>
+                    <ListView
+                        x:Name="ListViewGoals"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        SelectedItem="{Binding GoalsControl}"
+                        ItemsSource="{Binding GetGoalsCollectionControl}">
+                        
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                                <Setter Property="Margin" Value="0,15,0,0" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
 
+                    </ListView>
+                </StackPanel>
+            </ScrollViewer>
 
-
+            
 
         </Grid>
     </Grid>

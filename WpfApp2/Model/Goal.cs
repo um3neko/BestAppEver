@@ -27,17 +27,19 @@ namespace WpfApp2.Model
 
         public DateTime DateOfCreation { get; set; }
 
+        private static int i;
 
         public Goal()
         {
-            Name = "EXAMPLE NAME GOAL";
-            Description = "Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple Exaple";
+            Name = $"EXAMPLE NAME GOAL {i}";
+            Description = $"Exaple {i} Exaple {i} Exaple {i} Exaple {i} Exaple {i} Exaple {i} Exaple {i} ";
             CurrentTimeGoal = 0;
             Sessions = 0;
             Time = 0;
             LVL = 1;
             DateOfCreation = DateTime.Now;
-           
+            i++;
+
         }
 
         

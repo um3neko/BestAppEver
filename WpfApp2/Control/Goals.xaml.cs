@@ -15,24 +15,38 @@ using System.Windows.Shapes;
 using WpfApp2.ControlViewModel;
 using WpfApp2.Model;
 using WpfApp2.View;
+using WpfApp2.View.AddGoal;
 using WpfApp2.ViewModel.AddGoal;
+using WpfApp2.ViewModel.SecondPage;
 
 namespace WpfApp2.Control
 {
     /// <summary>
     /// Логика взаимодействия для Goals.xaml
     /// </summary>
-    public partial class Goals : UserControl
+    public partial class Goals : UserControl 
     {
+        
+        private Goal _goal;
+        public Goal Goal
+        {
+            get { return _goal; }
+        }
+
         public Goals(Goal goal)
         {
             InitializeComponent();
             DataContext = new GoalControlViewModel(goal);
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
+            _goal = goal;
             
         }
+        
+        //private void UserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        //{
+        //    MessageBox.Show($"Double Click + {_goal.Name}");
+
+        //}
+
+        
     }
 }

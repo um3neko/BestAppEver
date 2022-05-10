@@ -5,34 +5,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WpfApp2.Model;
 
 namespace WpfApp2.ViewModel.AddGoal
 {
     internal class AddGoalViewModel : ViewModelBase
     {
+        public Goal GoalForAddGoalViewModel { get; set; }
 
-        private App _app;
-        public App Application
-        {
-            get => _app; private set => Set(ref _app, value);
-        }
+
+        public bool Editing { get; private set; } = false;
 
         public AddGoalViewModel()
         {
             
         }
 
-        public ICommand Open_APP
+        public AddGoalViewModel(Goal goal)
         {
-            get
-            {
-                return new RelayCommand(() =>
-                {
-                    _app = new App();
-                    
-                });
-            }
+            GoalForAddGoalViewModel = goal;
         }
+
+        
 
     }
 }

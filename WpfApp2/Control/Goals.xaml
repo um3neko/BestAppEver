@@ -23,16 +23,16 @@
         </Grid.Background>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="150" />
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="150*" />
+            <RowDefinition Height="Auto" />
 
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="250" />
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200*" />
+            <ColumnDefinition Width="250*" />
+            <ColumnDefinition Width="250*" />
+            <ColumnDefinition Width="200*" />
         </Grid.ColumnDefinitions>
 
         <TextBlock
@@ -40,41 +40,38 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
             FontSize="12"
-            Text="{Binding DateOfCreation}" />
+            Text="{Binding GoalInstance.DateOfCreation}" />
         <Image
             Grid.Row="0"
-            Opacity="1"
-            MaxHeight="150"
-            MinWidth="25"
             Grid.Column="0"
+            MinWidth="25"
+            MaxHeight="150"
+            Opacity="1"
             Source="\Resources\Contorl\GoalControl\comboburst-1.png" />
-
         <TextBlock
             Grid.Column="1"
             Grid.ColumnSpan="2"
             Margin="10,50,10,10"
             FontSize="20"
-            Text="{Binding Description}"
+            Text="{Binding GoalInstance.Description}"
             TextWrapping="Wrap" />
         <TextBlock
-            x:Name="Goal_Name"
             Grid.Column="1"
             Grid.ColumnSpan="2"
-            TextAlignment="Center"
             HorizontalAlignment="Center"
             FontSize="30"
-            Text="{Binding Name}"
-            />
+            Text="{Binding GoalInstance.Name}"
+            TextAlignment="Center" />
         <TextBlock
             Grid.Row="1"
             Grid.Column="3"
+            Width="10"
             Margin="0,10,0,10"
             HorizontalAlignment="Center"
             FontSize="20"
-            Text="{Binding Time}" Width="10" />
+            Text="{Binding GoalInstance.Time}" />
         <TextBlock
             Grid.Row="1"
-            
             Grid.Column="1"
             Margin="25,0,0,0"
             Text="Sessions : " />
@@ -82,7 +79,7 @@
             Grid.Row="1"
             Grid.Column="1"
             Margin="80,0,0,0"
-            Text="{Binding Sessions}" />
+            Text="{Binding GoalInstance.Sessions}" />
         <TextBlock
             Grid.Row="1"
             Grid.Column="2"
@@ -92,7 +89,7 @@
             Grid.Row="1"
             Grid.Column="2"
             Margin="60,0,0,0"
-            Text="{Binding CurrentTimeGoal}" />
+            Text="{Binding GoalInstance.CurrentTimeGoal}" />
         <ProgressBar
             Grid.Row="1"
             Grid.Column="1"
@@ -107,7 +104,11 @@
                 <RowDefinition Height="0.2*" />
             </Grid.RowDefinitions>
 
-            <Image Margin="-2,0,2,0" Source="\Resources\Contorl\GoalControl\reversearrow.png" />
+            <Image
+                MinWidth="25"
+                MaxHeight="125"
+                Margin="-2,0,2,0"
+                Source="\Resources\Contorl\GoalControl\reversearrow.png" />
 
             <TextBlock
                 Grid.Row="1"
@@ -116,33 +117,23 @@
                 FontSize="16"
                 Text="LVL : " />
             <TextBlock
-                x:Name="LVL"
                 Grid.Row="1"
                 Margin="50,0,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 FontSize="16"
-                Text="{Binding LVL}" />
-            <Button
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="Button" />
+                Text="{Binding GoalInstance.LVL}" />
+
         </Grid>
         <Button
+            Grid.Row="1"
             Grid.Column="1"
             Width="0"
+            Height="0"
             Margin="99,10,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="Button" Height="0" Grid.Row="1" />
-        <Button
-            Click="ButtonBase_OnClick"
-            Grid.Column="1"
-            Margin="23,56,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Button" Height="22" Width="40" />
-
+            Content="Button" />
     </Grid>
 
 </UserControl>

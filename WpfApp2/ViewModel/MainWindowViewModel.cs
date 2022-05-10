@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using WpfApp2.ControlViewModel;
 using WpfApp2.Data.GoalsCollection;
 using WpfApp2.Model;
 using WpfApp2.ViewModel.SecondPage;
@@ -20,11 +21,11 @@ namespace WpfApp2.ViewModel
 {
     internal class MainWindowViewModel : ViewModelPageBase
     {
-        public GoalData GoalDataObject;
+        
+        private static Page firstPage;
+        private static Page secondPage;
+        private static Page thirdPage;
 
-        private Page firstPage;
-        private Page secondPage;
-        private Page thirdPage;
         
         /// <summary>
         /// CTOR
@@ -134,7 +135,7 @@ namespace WpfApp2.ViewModel
                 return new RelayCommand(() => Anime(thirdPage));
             }
         }
-
+        
         public ICommand hideLeftBar
         {
             get
@@ -143,5 +144,6 @@ namespace WpfApp2.ViewModel
             }
         }
        
+
     }
 }
