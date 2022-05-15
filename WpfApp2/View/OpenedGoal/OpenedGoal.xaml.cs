@@ -13,9 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp2.Model;
-using WpfApp2.ViewModel.AddGoal;
+using WpfApp2.ViewModel.OpenedGoalViewModel;
 
-namespace WpfApp2.View.AddGoal
+namespace WpfApp2.View.OpenedGoal
 {
     /// <summary>
     /// Логика взаимодействия для OpenedGoal.xaml
@@ -25,7 +25,9 @@ namespace WpfApp2.View.AddGoal
         public OpenedGoal(Goal goal)
         {
             InitializeComponent();
-            DataContext = new AddGoalViewModel(goal);
+            DataContext = new OpenedGoalViewModel(goal);
         }
+
+        
     }
 }

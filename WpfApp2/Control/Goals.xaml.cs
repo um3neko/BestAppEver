@@ -15,8 +15,6 @@ using System.Windows.Shapes;
 using WpfApp2.ControlViewModel;
 using WpfApp2.Model;
 using WpfApp2.View;
-using WpfApp2.View.AddGoal;
-using WpfApp2.ViewModel.AddGoal;
 using WpfApp2.ViewModel.SecondPage;
 
 namespace WpfApp2.Control
@@ -40,13 +38,7 @@ namespace WpfApp2.Control
             _goal = goal;
             
         }
-        
-        //private void UserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        //{
-        //    MessageBox.Show($"Double Click + {_goal.Name}");
-
-        //}
-
+       
         
     }
 }

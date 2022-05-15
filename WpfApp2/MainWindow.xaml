@@ -1,19 +1,20 @@
-﻿<Window 
+﻿<Window
+    x:Class="WpfApp2.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Control="clr-namespace:WpfApp2.Control"
+    xmlns:command="http://www.galasoft.ch/mvvmlight"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:local="clr-namespace:WpfApp2"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:WpfApp2.ViewModel"
-    xmlns:Control="clr-namespace:WpfApp2.Control"
-    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-    xmlns:command="http://www.galasoft.ch/mvvmlight"
-    x:Class="WpfApp2.MainWindow"
     Title="MainWindow"
     Width="1400"
     Height="800"
-    mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowState="Normal"
-    >
+    WindowStartupLocation="CenterScreen"
+    WindowState="Normal"
+    mc:Ignorable="d">
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
@@ -25,11 +26,11 @@
     </i:Interaction.Triggers>
 
 
-    <Grid >
+    <Grid>
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FBC2EB"/>
-                <GradientStop Color="#78A3EB" Offset="1"/>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#FBC2EB" />
+                <GradientStop Offset="1" Color="#78A3EB" />
             </LinearGradientBrush>
         </Grid.Background>
 
@@ -39,11 +40,12 @@
         </Grid.ColumnDefinitions>
 
 
-        <Grid Grid.Column="0" >
+        <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="150" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+            
             <Button
                 Width="50"
                 Height="50"
@@ -52,17 +54,14 @@
                 Command="{Binding hideLeftBar}"
                 Content="Anime" />
             <TextBlock
-                Width="20" 
+                Width="20"
                 Height="15"
-                VerticalAlignment="Bottom"
                 HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
                 Text="{Binding StackPanelWidth}" />
 
 
-            <StackPanel 
-                
-                x:Name="StackLeftPanel" 
-                Grid.Row="1">
+            <StackPanel x:Name="StackLeftPanel" Grid.Row="1">
 
                 <Button
                     Height="25"
@@ -81,7 +80,6 @@
         </Grid>
 
         <Frame
-            
             Grid.Column="1"
             Content="{Binding CurrentPage}"
             NavigationUIVisibility="Hidden"

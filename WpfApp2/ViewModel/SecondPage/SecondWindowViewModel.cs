@@ -1,38 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.Command;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WpfApp2.Control;
-using WpfApp2.ControlViewModel;
 using WpfApp2.Data.GoalsCollection;
 using WpfApp2.Model;
-using WpfApp2.View.AddGoal;
+using WpfApp2.View.OpenedGoal;
 
 
 namespace WpfApp2.ViewModel.SecondPage
 {
+    /// <summary>
+    /// ДОЛЖНЕН БЫЛ БЫТЬ ФРЕЙМ ДЛЯ ВТОРОЙ СТРАНИЦЫ,
+    /// НО ТЕПЕРЬ ЭТА ШТУКА ВЫВОДИТ СПИСОК ЦЕЛЕЙ
+    /// </summary>
     internal class SecondWindowViewModel : ViewModelPageBase
     {
-        private Page _fullOpenedGoalPage;
-        public Page FullOpenedGoalPage
-        {
-            get
-            {
-                return _fullOpenedGoalPage;
-            }
-            set
-            {
-                _fullOpenedGoalPage = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public Goals GoalsControl { get; set; }
-
+        /// <summary>
+        /// ТУТ ХРОНИТСО ВЫДЕЛЕННЫЙ КОНТРОЛ
+        /// </summary>
+        public Goals SelectedGoalsControl { get; set; }
+        public Page OpenedPage { get; set; }
+        
         public SecondWindowViewModel()
         {
             GetGoalsCollectionControl = new ObservableCollection<Goals>();
@@ -40,26 +30,23 @@ namespace WpfApp2.ViewModel.SecondPage
             {
                 foreach (var goal in GoalData.GoalsSingletonCollection)
                 {
-                    GoalsControl = new Goals(goal);
-                    GetGoalsCollectionControl.Add(GoalsControl);
-                    GoalsControl.MouseDoubleClick += UserControl_MouseDoubleClick;
+                    SelectedGoalsControl = new Goals(goal);
+                    GetGoalsCollectionControl.Add(SelectedGoalsControl);
+                    SelectedGoalsControl.MouseDoubleClick += UserControl_MouseDoubleClick;
                 }
             }
 
-        }
+            
 
+        }
         private void UserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
-            //MessageBox.Show($"Double Click + {GoalsControl.Goal.Name}");
             
-            FullOpenedGoalPage = new OpenedGoal(GoalsControl.Goal);
-            Anime(FullOpenedGoalPage);
-        }
+            FrameForSecondPageViewModel.FrameForSecondPageViewModel.Instance.CurrentPage = new OpenedGoal(SelectedGoalsControl.Goal);
 
-          
+        }
         
-        public static ObservableCollection<Goals> GetGoalsCollectionControl { get; private set; }
+        public ObservableCollection<Goals> GetGoalsCollectionControl { get; }
 
         /// <summary>
         /// CREATE GOAL
@@ -80,8 +67,9 @@ namespace WpfApp2.ViewModel.SecondPage
                 });
             }
         }
+       
 
-
+         
     }
 
 

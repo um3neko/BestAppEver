@@ -16,7 +16,6 @@ namespace WpfApp2.Model.Saving
        
         public static void SaveToXml(List<Goal> goals)
         {
-            
             try
             {
                 using (FileStream fs = new FileStream("SAVEDGOALS.xml", FileMode.OpenOrCreate))
@@ -29,8 +28,8 @@ namespace WpfApp2.Model.Saving
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
-                
+                throw new Exception(e.ToString());
+
             }
             
         }
@@ -51,6 +50,7 @@ namespace WpfApp2.Model.Saving
 
             catch (Exception ex)
             {
+                throw new Exception(ex.ToString());
                 return null;
             }
         }

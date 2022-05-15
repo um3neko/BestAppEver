@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp2.Data.GoalsCollection;
+using WpfApp2.Model.Saving;
 using WpfApp2.ViewModel;
 
 namespace WpfApp2
@@ -21,11 +23,26 @@ namespace WpfApp2
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public  MainWindow()
         {
+            
             InitializeComponent();
+
+            GoalData.GoalsSingletonCollection = SerializationXml.ReadFromXml();
+            if (GoalData.GoalsSingletonCollection == null)
+            {
+                throw new NullReferenceException("всм?");
+
+            }
+
             DataContext = new MainWindowViewModel();
+
+            
         }
+
+
+
+
 
     }
 }

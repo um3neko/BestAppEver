@@ -31,32 +31,26 @@
                 <ColumnDefinition Width="0.2*" />
                 <ColumnDefinition />
                 <ColumnDefinition Width="0.2*" />
-
             </Grid.ColumnDefinitions>
-
-            <Frame
-                Grid.Row="3"
-                Grid.Column="1"
-                Content="{Binding CurrentPage}"
-                NavigationUIVisibility="Hidden"
-                Opacity="{Binding CurrentOpacity}" />
 
             <StackPanel Grid.Column="1" Orientation="Horizontal">
                 <Button
                     Width="64"
                     Command="{Binding CreateGoalCommand}"
                     Content="Add" />
-
             </StackPanel>
 
-
+            <!--<Frame
+                Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Content="{Binding CurrentPage}"
+                NavigationUIVisibility="Hidden" />-->
 
             <ScrollViewer
                 Grid.Row="1"
-                Grid.RowSpan="2"
+                Grid.RowSpan="3"
                 Grid.ColumnSpan="3">
-
-
                 <StackPanel>
                     <ListView
                         x:Name="ListViewGoals"
@@ -65,9 +59,9 @@
                         HorizontalContentAlignment="Center"
                         Background="{x:Null}"
                         BorderBrush="{x:Null}"
-                        SelectedItem="{Binding GoalsControl}"
-                        ItemsSource="{Binding GetGoalsCollectionControl}">
-                        
+                        ItemsSource="{Binding GetGoalsCollectionControl}"
+                        SelectedItem="{Binding SelectedGoalsControl}">
+
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -79,9 +73,6 @@
                     </ListView>
                 </StackPanel>
             </ScrollViewer>
-
-            
-
         </Grid>
     </Grid>
 </Page>

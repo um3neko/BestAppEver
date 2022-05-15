@@ -11,11 +11,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Microsoft.Win32;
 using WpfApp2.ControlViewModel;
 using WpfApp2.Data.GoalsCollection;
 using WpfApp2.Model;
 using WpfApp2.ViewModel.SecondPage;
 using WpfApp2.Model.Saving;
+using WpfApp2.View.FrameForSecondPage;
 
 namespace WpfApp2.ViewModel
 {
@@ -33,19 +35,14 @@ namespace WpfApp2.ViewModel
         public MainWindowViewModel()
         {
             //При запуске считывает XML
-            GoalData.GoalsSingletonCollection = SerializationXml.ReadFromXml();
-
-            if (GoalData.GoalsSingletonCollection == null)
-            {
-                GoalData.GoalsSingletonCollection = new List<Goal>();
-            }
-
             firstPage = new View.FirstPage();
-            secondPage = new View.SecondPage();
+            
+            secondPage = new FrameForSecondPage();
             thirdPage = new View.ThirdPage();
+
             _stackPanelWidth = 150;
             CurrentOpacity = 1;
-
+            
         }
 
 

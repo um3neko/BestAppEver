@@ -14,16 +14,19 @@ namespace WpfApp2.Model
     public class Goal
     {
         
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public String Name { get; set; }
+        public String Description { get; set; }
+        
+        public String Application { get; set; }
+        public Icon AppIcon { get; set; }
 
-        public int Sessions { get; set; }
+        public Int32 Sessions { get; set; }
 
-        public int Time { get; set; } 
+        public Int32 Time { get; set; } 
 
-        public int CurrentTimeGoal { get; set; } 
+        public Int32 CurrentTimeGoal { get; set; } 
 
-        public int LVL { get; set; }
+        public Int32 LVL { get; set; }
 
         public DateTime DateOfCreation { get; set; }
 

@@ -1,0 +1,143 @@
+﻿<Page
+    x:Class="WpfApp2.View.OpenedGoal.OpenedGoal"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp2.View.OpenedGoal"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:openedGoalViewModel="clr-namespace:WpfApp2.ViewModel.OpenedGoalViewModel"
+    Title="OpenedGoal"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <openedGoalViewModel:OpenedGoalViewModel />
+    </Page.DataContext>
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.65*" />
+                <RowDefinition Height="0.35*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="0.3*" />
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer
+                Grid.Column="1"
+                MinHeight="300"
+                MaxHeight="1000">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        Orientation="Vertical"
+                        Visibility="Visible">
+
+                        <TextBlock
+                            Margin="0,15"
+                            HorizontalAlignment="Center"
+                            FontSize="35"
+                            Text="{Binding Goal.Name}"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            Margin="0,15"
+                            HorizontalAlignment="Left"
+                            FontSize="20"
+                            TextWrapping="Wrap">
+                            <Run Text="Описание :      " />
+                            <Run Text="{Binding Goal.Description}" />
+                        </TextBlock>
+
+                        <TextBlock
+                            Margin="0,15"
+                            HorizontalAlignment="Left"
+                            FontSize="20"
+                            TextWrapping="Wrap">
+                            <Run Text="Application :     " />
+                            <Run Text="{Binding Goal.Application}" />
+                        </TextBlock>
+                        <Image Source="{Binding Goal.AppIcon}"></Image>
+                    </StackPanel>
+
+                    <StackPanel
+                        x:Name="Settings"
+                        Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        Orientation="Vertical"
+                        Visibility="Visible">
+                        <TextBox
+                            Margin="0,15"
+                            HorizontalAlignment="Center"
+                            Background="{x:Null}"
+                            BorderBrush="{x:Null}"
+                            FontSize="35"
+                            Text="{Binding Goal.Name}"
+                            TextWrapping="Wrap" />
+                        <TextBox
+                            Margin="0,15"
+                            HorizontalAlignment="Center"
+                            Background="{x:Null}"
+                            BorderBrush="{x:Null}"
+                            FontSize="25"
+                            Text="{Binding Goal.Description}" />
+                        <Button
+                            Height="35"
+                            Margin="20,0,20,0"
+                            Command="{Binding AddApp}"
+                            Content="Добавить приложение" />
+                    </StackPanel>
+
+                </Grid>
+            </ScrollViewer>
+
+            <StackPanel Grid.Row="0" Grid.Column="2">
+                <Image />
+                <Button
+                    Height="50"
+                    Margin="25"
+                    Content="Редактировать" />
+            </StackPanel>
+
+            <ScrollViewer Grid.Row="1" Grid.Column="1">
+                <ListView
+                    Margin="25"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    HorizontalContentAlignment="Center"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}">
+
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                            <Setter Property="Margin" Value="0,15,0,0" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
+                </ListView>
+            </ScrollViewer>
+
+
+
+            <!--  ItemsSource="{Binding }"  -->
+            <!--  SelectedItem="{Binding }"  -->
+
+        </Grid>
+
+
+
+    </Grid>
+</Page>
