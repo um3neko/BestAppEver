@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp2.ViewModel.ThirdPage;
 
 namespace WpfApp2.View
 {
@@ -23,6 +24,7 @@ namespace WpfApp2.View
         public ThirdPage()
         {
             InitializeComponent();
+            DataContext = new ThirdPageViewModel();
         }
     }
 }

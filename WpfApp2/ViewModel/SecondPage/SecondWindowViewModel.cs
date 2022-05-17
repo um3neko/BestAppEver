@@ -21,8 +21,7 @@ namespace WpfApp2.ViewModel.SecondPage
         /// ТУТ ХРОНИТСО ВЫДЕЛЕННЫЙ КОНТРОЛ
         /// </summary>
         public Goals SelectedGoalsControl { get; set; }
-        public Page OpenedPage { get; set; }
-        
+
         public SecondWindowViewModel()
         {
             GetGoalsCollectionControl = new ObservableCollection<Goals>();
@@ -35,9 +34,6 @@ namespace WpfApp2.ViewModel.SecondPage
                     SelectedGoalsControl.MouseDoubleClick += UserControl_MouseDoubleClick;
                 }
             }
-
-            
-
         }
         private void UserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {

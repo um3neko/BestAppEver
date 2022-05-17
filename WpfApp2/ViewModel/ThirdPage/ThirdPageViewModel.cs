@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp2.Model
+namespace WpfApp2.ViewModel.ThirdPage
 {
-    internal class Session
+    internal class ThirdPageViewModel : ViewModelPageBase
     {
+        
     }
 }

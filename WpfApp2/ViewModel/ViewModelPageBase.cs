@@ -27,18 +27,18 @@ namespace WpfApp2.ViewModel
 
         protected async void Anime(Page page)
         {
-            await Task.Factory.StartNew(() =>
+            await Task.Run(() =>
             {
                 for (double i = 1.0; i > 0.0; i -= 0.1)
                 {
                     CurrentOpacity = i;
-                    Thread.Sleep(10);
+                    Thread.Sleep(5);
                 }
                 CurrentPage = page;
                 for (double i = 0.0; i < 1.1; i += 0.1)
                 {
                     CurrentOpacity = i;
-                    Thread.Sleep(10);
+                    Thread.Sleep(5);
                 }
             });
         }

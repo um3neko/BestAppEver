@@ -96,17 +96,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ControlViewModel\GoalControlViewModel.cs" />
+    <Compile Include="ControlViewModel\SubGoalUserControlViewModel.cs" />
     <Compile Include="ControlViewModel\TimerViewModel\TimerViewModel.cs" />
     <Compile Include="Control\Goals.xaml.cs">
       <DependentUpon>Goals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\SubGoalUserControl.xaml.cs">
+      <DependentUpon>SubGoalUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Control\Timer\Timer.xaml.cs">
       <DependentUpon>Timer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\GoalsCollection\GoalData.cs" />
+    <Compile Include="Model\AbscractGoal.cs" />
     <Compile Include="Model\Goal.cs" />
     <Compile Include="Model\Saving\SerializationXml.cs" />
-    <Compile Include="Model\Session.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\FrameForSecondPageViewModel\FrameForSecondPageViewModel.cs" />
     <Compile Include="ViewModel\OpenedGoalViewModel\OpenedGoalViewModel.cs" />
@@ -114,6 +118,8 @@
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\SecondPage\SecondWindowViewModel.cs" />
     <Compile Include="ViewModel\StudySessionViewModel.cs" />
+    <Compile Include="ViewModel\SubGoalViewModel\SubGoalViewModel.cs" />
+    <Compile Include="ViewModel\ThirdPage\ThirdPageViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelPageBase.cs" />
     <Compile Include="View\FrameForSecondPage\FrameForSecondPage.xaml.cs">
@@ -131,10 +137,17 @@
     <Compile Include="View\StudySession.xaml.cs">
       <DependentUpon>StudySession.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SubGoal\SubGoal.xaml.cs">
+      <DependentUpon>SubGoal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ThirdPage\ThirdPage.xaml.cs">
       <DependentUpon>ThirdPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Control\Goals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\SubGoalUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\StudySession.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SubGoal\SubGoal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -232,7 +249,9 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModel\ThirdPage\" />
+    <Resource Include="Resources\qwer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\StudySession\numberblat.png">
@@ -241,6 +260,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\StudySession\Strelka.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\settings.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\front-end.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

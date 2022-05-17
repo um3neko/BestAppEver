@@ -12,26 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp2.ControlViewModel;
 using WpfApp2.Model;
-using WpfApp2.ViewModel.OpenedGoalViewModel;
 
-namespace WpfApp2.View.OpenedGoal
+namespace WpfApp2.Control
 {
     /// <summary>
-    /// Логика взаимодействия для OpenedGoal.xaml
+    /// Логика взаимодействия для SubGoalUserControl.xaml
     /// </summary>
-    public partial class OpenedGoal : Page
+    public partial class SubGoalUserControl : UserControl
     {
-        public OpenedGoal(Goal goal)
+        public SubGoal SubGoal { get; }
+        public SubGoalUserControl(SubGoal subGoal)
         {
             InitializeComponent();
-            DataContext = new OpenedGoalViewModel(goal);
-        }
-
-
-        private void Selector_OnSelected(object sender, RoutedEventArgs e)
-        {
-            
+            DataContext = new SubGoalUserControlViewModel(subGoal);
+            SubGoal = subGoal;
         }
     }
 }

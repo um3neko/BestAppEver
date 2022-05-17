@@ -7,33 +7,20 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using WpfApp2.Control;
+using WpfApp2.Data.GoalsCollection;
+using WpfApp2.Model.Saving;
 
 namespace WpfApp2.Model
 {
     [Serializable]
-    public class Goal
+    public class Goal : AbscractGoal
     {
-        
-        public String Name { get; set; }
-        public String Description { get; set; }
-        
-        public String Application { get; set; }
-        public Icon AppIcon { get; set; }
+        public List<SubGoal> SubGoals { get; }
 
-        public Int32 Sessions { get; set; }
-
-        public Int32 Time { get; set; } 
-
-        public Int32 CurrentTimeGoal { get; set; } 
-
-        public Int32 LVL { get; set; }
-
-        public DateTime DateOfCreation { get; set; }
-
-        private static int i;
-
+        private static Int32 i;
         public Goal()
         {
+            SubGoals = new List<SubGoal>();
             Name = $"EXAMPLE NAME GOAL {i}";
             Description = $"Exaple {i} Exaple {i} Exaple {i} Exaple {i} Exaple {i} Exaple {i} Exaple {i} ";
             CurrentTimeGoal = 0;
@@ -41,12 +28,36 @@ namespace WpfApp2.Model
             Time = 0;
             LVL = 1;
             DateOfCreation = DateTime.Now;
-            i++;
-
+            ++i;
         }
-
+        public SubGoal CreateSubGoal()
+        {
+            SubGoal sub = new SubGoal();
+            SubGoals.Add(sub);
+            return sub;
+        }
         
-        
 
+        public static void InitializationOfGoals()
+        {
+            GoalData.GoalsSingletonCollection = SerializationXml.ReadFromXml();
+            
+        }
+       
     }
+    [Serializable]
+    public class SubGoal : AbscractGoal
+    {
+        public static Int32 i;
+        public SubGoal()
+        {
+            Name = $"SubGoal {i}";
+            Description = $"SubGoal {i} Description";
+            Sessions = 0;
+            CurrentTimeGoal = 0;
+            DateOfCreation = DateTime.Now;
+            ++i;
+        }
+    }
+
 }

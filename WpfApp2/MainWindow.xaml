@@ -35,54 +35,58 @@
         </Grid.Background>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="{Binding StackPanelWidth}" />
             <ColumnDefinition />
+
         </Grid.ColumnDefinitions>
 
-
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="150" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            
-            <Button
-                Width="50"
-                Height="50"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Command="{Binding hideLeftBar}"
-                Content="Anime" />
-            <TextBlock
-                Width="20"
-                Height="15"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Bottom"
-                Text="{Binding StackPanelWidth}" />
-
-
-            <StackPanel x:Name="StackLeftPanel" Grid.Row="1">
-
-                <Button
-                    Height="25"
-                    Command="{Binding firstPage_Click}"
-                    Content="First But" />
-                <Button
-                    Height="25"
-                    Command="{Binding secondPage_Click}"
-                    Content="Second But" />
-                <Button
-                    Height="25"
-                    Command="{Binding thirdPage_Click}"
-                    Content="Third But" />
-
-            </StackPanel>
-        </Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.9*" />
+        </Grid.RowDefinitions>
 
         <Frame
-            Grid.Column="1"
+            Grid.Row="1"
             Content="{Binding CurrentPage}"
             NavigationUIVisibility="Hidden"
             Opacity="{Binding CurrentOpacity}" />
+
+
+        <Button
+            Width="50"
+            Height="50"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding hideLeftBar}"
+            Content="Anime" />
+        <TextBlock
+            Width="20"
+            Height="15"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Text="{Binding StackPanelWidth}" />
+
+
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="0"
+            Orientation="Horizontal">
+
+            <Button
+                Margin="550,0,0,0"
+                Height="25"
+                Command="{Binding firstPage_Click}"
+                Content="First But" />
+            <Button
+                Height="25"
+                Command="{Binding secondPage_Click}"
+                Content="Second But" />
+            <Button
+                Height="25"
+                Command="{Binding thirdPage_Click}"
+                Content="Third But" />
+
+        </StackPanel>
+
+        
     </Grid>
 </Window>

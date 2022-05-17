@@ -18,126 +18,88 @@
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.65*" />
-                <RowDefinition Height="0.35*" />
+
+                <RowDefinition Height="0.5*" />
+                
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.3*" />
+                <ColumnDefinition Width="0.2*" />
                 <ColumnDefinition />
                 <ColumnDefinition Width="0.3*" />
             </Grid.ColumnDefinitions>
 
-            <ScrollViewer
-                Grid.Column="1"
-                MinHeight="300"
-                MaxHeight="1000">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
+           
 
-                    <StackPanel
-                        Grid.Column="1"
-                        HorizontalAlignment="Center"
-                        Orientation="Vertical"
-                        Visibility="Visible">
+            <!--<ScrollViewer Grid.Row="0" Grid.Column="1">
 
-                        <TextBlock
-                            Margin="0,15"
-                            HorizontalAlignment="Center"
-                            FontSize="35"
-                            Text="{Binding Goal.Name}"
-                            TextWrapping="Wrap" />
-                        <TextBlock
-                            Margin="0,15"
-                            HorizontalAlignment="Left"
-                            FontSize="20"
-                            TextWrapping="Wrap">
-                            <Run Text="Описание :      " />
-                            <Run Text="{Binding Goal.Description}" />
-                        </TextBlock>
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,25"
+                        HorizontalAlignment="Left"
+                        FontSize="32"
+                        Text="{Binding Goal.Name}" />
+                    <TextBlock HorizontalAlignment="Left" FontSize="20">
+                        <Run Text="{Binding Goal.Description}" />
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" FontSize="20">
+                        <Run Text="Программа :" />
+                        <Run Text="{Binding Goal.Application}" />
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" FontSize="20">
+                        <Run Text="Количество подзадач :" />
+                        <Run Text="??????" />
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" FontSize="20">
+                        <Run Text="Количество выполненых задач :" />
+                        <Run Text="??????" />
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" FontSize="20">
+                        <Run Text="Оценка успешности :" />
+                        <Run Text="??????" />
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" FontSize="20">
+                        <Run Text="Еще шото я хуй  знает :" />
+                        <Run Text="??????" />
+                    </TextBlock>
+                </StackPanel>
+            </ScrollViewer>-->
 
-                        <TextBlock
-                            Margin="0,15"
-                            HorizontalAlignment="Left"
-                            FontSize="20"
-                            TextWrapping="Wrap">
-                            <Run Text="Application :     " />
-                            <Run Text="{Binding Goal.Application}" />
-                        </TextBlock>
-                        <Image Source="{Binding Goal.AppIcon}"></Image>
-                    </StackPanel>
 
-                    <StackPanel
-                        x:Name="Settings"
-                        Grid.Column="2"
-                        HorizontalAlignment="Center"
-                        Orientation="Vertical"
-                        Visibility="Visible">
-                        <TextBox
-                            Margin="0,15"
-                            HorizontalAlignment="Center"
-                            Background="{x:Null}"
-                            BorderBrush="{x:Null}"
-                            FontSize="35"
-                            Text="{Binding Goal.Name}"
-                            TextWrapping="Wrap" />
-                        <TextBox
-                            Margin="0,15"
-                            HorizontalAlignment="Center"
-                            Background="{x:Null}"
-                            BorderBrush="{x:Null}"
-                            FontSize="25"
-                            Text="{Binding Goal.Description}" />
-                        <Button
-                            Height="35"
-                            Margin="20,0,20,0"
-                            Command="{Binding AddApp}"
-                            Content="Добавить приложение" />
-                    </StackPanel>
-
-                </Grid>
-            </ScrollViewer>
-
-            <StackPanel Grid.Row="0" Grid.Column="2">
-                <Image />
+            <StackPanel Grid.Row="0" >
                 <Button
                     Height="50"
-                    Margin="25"
-                    Content="Редактировать" />
+                    VerticalAlignment="Top"
+                    Background="{x:Null}"
+                    Command="{Binding AddSubGoal}"
+                    Content="Add"
+                    FontSize="25" />
+                <ScrollViewer Height="500">
+                    <ListView
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Left"
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        ItemsSource="{Binding SubGoals}"
+                        SelectedItem="{Binding SelectedSubGoal}">
+
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                                <Setter Property="Margin" Value="0,15,0,0" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </ScrollViewer>
+
             </StackPanel>
 
-            <ScrollViewer Grid.Row="1" Grid.Column="1">
-                <ListView
-                    Margin="25"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    HorizontalContentAlignment="Center"
-                    Background="{x:Null}"
-                    BorderBrush="{x:Null}">
-
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
-                            <Setter Property="Margin" Value="0,15,0,0" />
-                        </Style>
-                    </ListView.ItemContainerStyle>
-
-                </ListView>
-            </ScrollViewer>
-
-
-
-            <!--  ItemsSource="{Binding }"  -->
-            <!--  SelectedItem="{Binding }"  -->
-
+            <Frame
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Content="{Binding CurrentPage}" />
         </Grid>
-
-
-
     </Grid>
 </Page>
