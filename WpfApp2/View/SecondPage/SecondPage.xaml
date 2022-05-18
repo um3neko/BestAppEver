@@ -51,28 +51,32 @@
                 Grid.Row="1"
                 Grid.RowSpan="3"
                 Grid.ColumnSpan="3">
-                <StackPanel>
-                    <ListView
-                        x:Name="ListViewGoals"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        HorizontalContentAlignment="Center"
-                        Background="{x:Null}"
-                        BorderBrush="{x:Null}"
-                        ItemsSource="{Binding GetGoalsCollectionControl}"
-                        SelectedItem="{Binding SelectedGoalsControl}">
+                <ListView
+                    x:Name="ListViewGoals"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    HorizontalContentAlignment="Center"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    ItemsSource="{Binding GetGoalsCollectionControl}"
+                    PreviewMouseWheel="ListViewGoals_PreviewMouseWheel"
+                    SelectedItem="{Binding SelectedGoalsControl}">
 
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                                <Setter Property="VerticalContentAlignment" Value="Stretch" />
-                                <Setter Property="Margin" Value="0,15,0,0" />
-                            </Style>
-                        </ListView.ItemContainerStyle>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                            <Setter Property="Margin" Value="0,15,0,0" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
 
-                    </ListView>
-                </StackPanel>
+                </ListView>
+
             </ScrollViewer>
+
+
+
+
         </Grid>
     </Grid>
 </Page>

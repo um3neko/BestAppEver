@@ -29,8 +29,8 @@
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                <GradientStop Color="#FBC2EB" />
-                <GradientStop Offset="1" Color="#78A3EB" />
+                <GradientStop Color="#6C63FF" />
+                <GradientStop Offset="1" Color="#151716" />
             </LinearGradientBrush>
         </Grid.Background>
 
@@ -40,7 +40,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.05*" />
             <RowDefinition Height="0.9*" />
         </Grid.RowDefinitions>
 
@@ -49,22 +49,6 @@
             Content="{Binding CurrentPage}"
             NavigationUIVisibility="Hidden"
             Opacity="{Binding CurrentOpacity}" />
-
-
-        <Button
-            Width="50"
-            Height="50"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Command="{Binding hideLeftBar}"
-            Content="Anime" />
-        <TextBlock
-            Width="20"
-            Height="15"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
-            Text="{Binding StackPanelWidth}" />
-
 
         <StackPanel
             Grid.Row="0"

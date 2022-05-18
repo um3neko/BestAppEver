@@ -53,6 +53,7 @@ namespace WpfApp2.Model
         {
             Name = $"SubGoal {i}";
             Description = $"SubGoal {i} Description";
+            Application = $"SubGoal Application";
             Sessions = 0;
             CurrentTimeGoal = 0;
             DateOfCreation = DateTime.Now;

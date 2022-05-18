@@ -18,7 +18,7 @@ namespace WpfApp2.Model.Saving
         {
             try
             {
-                using (FileStream fs = new FileStream("SAVEDGOALS.xml", FileMode.OpenOrCreate))
+                using (FileStream fs = new FileStream("SAVEDGOALS.json", FileMode.OpenOrCreate))
                 {
                     xmlSerializer.Serialize(fs, goals);
                 }
@@ -37,7 +37,7 @@ namespace WpfApp2.Model.Saving
             try
             {
                 
-                using (FileStream fs = new FileStream("SAVEDGOALS.xml", FileMode.OpenOrCreate))
+                using (FileStream fs = new FileStream("SAVEDGOALS.json", FileMode.OpenOrCreate))
                 {
                     goals = xmlSerializer.Deserialize(fs) as List<Goal>;
                 }
