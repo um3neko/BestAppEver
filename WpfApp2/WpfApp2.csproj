@@ -113,6 +113,8 @@
     <Compile Include="Model\Saving\SerializationXml.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\FrameForSecondPageViewModel\FrameForSecondPageViewModel.cs" />
+    <Compile Include="ViewModel\GoalWindowViewModel\GoalSettingsViewModel.cs" />
+    <Compile Include="ViewModel\GoalWindowViewModel\PageSettingsViewModel\PageSettingsViewModel.cs" />
     <Compile Include="ViewModel\OpenedGoalViewModel\OpenedGoalViewModel.cs" />
     <Compile Include="ViewModel\FirstPage\FirstPageViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
@@ -124,6 +126,18 @@
     <Compile Include="ViewModel\ViewModelPageBase.cs" />
     <Compile Include="View\FrameForSecondPage\FrameForSecondPage.xaml.cs">
       <DependentUpon>FrameForSecondPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GoalSettingsWindow\GoalSettings.xaml.cs">
+      <DependentUpon>GoalSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GoalSettingsWindow\SettingsPages\Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GoalSettingsWindow\SettingsPages\Page2.xaml.cs">
+      <DependentUpon>Page2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GoalSettingsWindow\SettingsPages\Page3.xaml.cs">
+      <DependentUpon>Page3.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\OpenedGoal\OpenedGoal.xaml.cs">
       <DependentUpon>OpenedGoal.xaml</DependentUpon>
@@ -168,6 +182,22 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\FrameForSecondPage\FrameForSecondPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GoalSettingsWindow\GoalSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GoalSettingsWindow\SettingsPages\Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GoalSettingsWindow\SettingsPages\Page2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GoalSettingsWindow\SettingsPages\Page3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -273,5 +303,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

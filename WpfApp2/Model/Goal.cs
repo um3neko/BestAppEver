@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -41,7 +42,6 @@ namespace WpfApp2.Model
         public static void InitializationOfGoals()
         {
             GoalData.GoalsSingletonCollection = SerializationXml.ReadFromXml();
-            
         }
        
     }
@@ -53,7 +53,7 @@ namespace WpfApp2.Model
         {
             Name = $"SubGoal {i}";
             Description = $"SubGoal {i} Description";
-            Application = $"SubGoal Application";
+            
             Sessions = 0;
             CurrentTimeGoal = 0;
             DateOfCreation = DateTime.Now;

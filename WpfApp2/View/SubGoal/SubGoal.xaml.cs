@@ -14,5 +14,11 @@ namespace WpfApp2.View.SubGoal
             InitializeComponent();
             DataContext = new SubGoalViewModel(subGoal);
         }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            StudySession session = new StudySession();
+            session.Show();
+        }
     }
 }

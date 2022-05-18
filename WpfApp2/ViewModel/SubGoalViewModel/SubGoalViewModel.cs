@@ -8,85 +8,17 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
 using Microsoft.Win32;
 using WpfApp2.Model;
+using WpfApp2.View.GoalSettingsWindow;
 
 namespace WpfApp2.ViewModel.SubGoalViewModel
 {
     internal class SubGoalViewModel : ViewModelPageBase
     {
         public SubGoal SubGoal{get; }
-        public String Name
-        {
-            get
-            {
-                return SubGoal.Name;
-            }
-            set
-            {
-                SubGoal.Name = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private String _Description;
-
-        public String Description
-        {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                OnPropertyChanged("Description");
-            }
-        }
-
-
-        private String _Application;
-
-        public String Application
-        {
-
-            get
-            {
-                return _Application;
-            }
-
-            private set
-            {
-                if (value.Contains(".exe"))
-                {
-                    _Application = value;
-                    OnPropertyChanged("Application");
-                }
-                else
-                {
-                    MessageBox.Show("File not exe");
-                }
-                
-
-            }
-        }
-
-        public Int32 Sessions { get; set; }
-        public Int32 Time { get; set; }
-        public Int32 CurrentTimeGoal { get; set; }
-        public Int32 LVL { get; set; }
-        public DateTime DateOfCreation { get; set; }
-
 
         public SubGoalViewModel(SubGoal subGoal)
         {
             SubGoal = subGoal;
-            Name= subGoal.Name;
-            Description= subGoal.Description;
-            _Application = subGoal.Application;
-            Sessions = subGoal.Sessions;
-            Time = subGoal.Time;
-            CurrentTimeGoal = subGoal.CurrentTimeGoal;
-            LVL = subGoal.LVL;
-            DateOfCreation = subGoal.DateOfCreation;
 
         }
 
@@ -95,17 +27,40 @@ namespace WpfApp2.ViewModel.SubGoalViewModel
             
         }
 
+        public ICommand SettingsClick
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    var goalSetiings = new GoalSettings(SubGoal);
+                    goalSetiings.ShowDialog();
+                });
+            }
+        }
+        
+
         public ICommand AddAppCommand
         {
             get
             {
                 return new RelayCommand(() =>
                 {
-                    OpenFileDialog fileDialog = new OpenFileDialog();
-                    fileDialog.Filter = "Exe Files (.exe)|*.exe|All Files (*.*)|*.*";
-                    fileDialog.FilterIndex = 1;
-                    fileDialog.ShowDialog();
-                    SubGoal.Application = fileDialog.SafeFileName;
+                   
+                    var fileDialog = new OpenFileDialog
+                    {
+                        Filter = "Exe Files (.exe)|*.exe|All Files (*.*)|*.*",
+                        FilterIndex = 1
+                    };
+
+                    if (fileDialog.ShowDialog() == true)
+                    {
+                        SubGoal.Application = fileDialog.SafeFileName;
+                    }
+                    else
+                    {
+                        return;
+                    }
                     
                     
 

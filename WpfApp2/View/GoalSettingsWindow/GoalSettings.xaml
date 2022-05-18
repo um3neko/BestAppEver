@@ -1,0 +1,61 @@
+﻿<Window
+    x:Class="WpfApp2.View.GoalSettingsWindow.GoalSettings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp2.View.GoalSettingsWindow"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:WpfApp2.ViewModel.GoalWindowViewModel"
+    Title="{Binding SubGoal.Name}"
+    Width="400"
+    Height="500"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="SingleBorderWindow"
+    mc:Ignorable="d">
+
+    <Window.DataContext>
+        <vm:GoalSettingsViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#764BA2" />
+                <GradientStop Offset="1" Color="#667EEA" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*" />
+            <RowDefinition />
+           
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*" />
+            <ColumnDefinition Width="0.8*" />
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <Button
+                Command="{Binding FirstPageCommand}"
+                Height="25"
+                Margin="0,100,0,0"
+                Content="SubGoal" />
+            <Button Command="{Binding SecondPageCommand}"  Height="25" />
+            <Button Command="{Binding ThirdPageCommand}" Height="25" />
+
+        </StackPanel>
+
+
+        <Frame
+            Grid.Column="1" 
+            Grid.Row="1"
+            Content="{Binding CurrentPage}"
+            NavigationUIVisibility="Hidden"
+            Opacity="{Binding CurrentOpacity}" />
+
+
+    </Grid>
+
+</Window>

@@ -1,25 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Xml.Serialization;
 
+
 namespace WpfApp2.Model.Saving
 {
-    internal static class SerializationXml 
+    internal static class SerializationXml
     {
-        private static XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Goal>));
-       
-        public static void SaveToXml(List<Goal> goals)
+        public static async void SaveToXml(List<Goal> goals)
         {
-            try
+            try 
             {
-                using (FileStream fs = new FileStream("SAVEDGOALS.json", FileMode.OpenOrCreate))
+                using (FileStream fs = new FileStream("SAVEDGOALS.xml", FileMode.OpenOrCreate))
                 {
+                    var xmlSerializer = new XmlSerializer(typeof(List<Goal>));
                     xmlSerializer.Serialize(fs, goals);
                 }
                 MessageBox.Show("SAVED");
@@ -28,7 +24,7 @@ namespace WpfApp2.Model.Saving
             {
                 throw new Exception(e.ToString());
             }
-            
+
         }
 
         public static List<Goal> ReadFromXml()
@@ -37,8 +33,9 @@ namespace WpfApp2.Model.Saving
             try
             {
                 
-                using (FileStream fs = new FileStream("SAVEDGOALS.json", FileMode.OpenOrCreate))
+                using (FileStream fs = new FileStream("SAVEDGOALS.xml", FileMode.Open))
                 {
+                    var xmlSerializer = new XmlSerializer(typeof(List<Goal>));
                     goals = xmlSerializer.Deserialize(fs) as List<Goal>;
                 }
                 MessageBox.Show("XML OK");

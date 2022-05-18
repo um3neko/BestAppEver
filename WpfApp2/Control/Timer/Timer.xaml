@@ -15,23 +15,24 @@
     </UserControl.DataContext>
 
     <Grid x:Name="GridLayout">
-        
-        
-        <Image 
+
+
+        <Image
             x:Name="Strelka"
             Panel.ZIndex="1"
             Opacity="1"
-            Source="\Resources\StudySession\Strelka.png" RenderTransformOrigin="0.5,0.5"  >
+            RenderTransformOrigin="0.5,0.5"
+            Source="\Resources\StudySession\Strelka.png">
             <Image.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="{Binding Rotator}"/>
-                    <TranslateTransform/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="{Binding Rotator}" />
+                    <TranslateTransform />
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <TextBlock Text="{Binding Waiting}" FontSize="20"/>
+        <TextBlock FontSize="20" Text="{Binding Waiting}" />
         <Image
             x:Name="Blat"
             Panel.ZIndex="0"
