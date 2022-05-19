@@ -19,8 +19,8 @@
         <Grid>
             <Grid.RowDefinitions>
 
-                <RowDefinition Height="0.5*" />
-                
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.8*" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -29,74 +29,46 @@
                 <ColumnDefinition Width="0.3*" />
             </Grid.ColumnDefinitions>
 
-           
 
-            <!--<ScrollViewer Grid.Row="0" Grid.Column="1">
+            <Button
+                Grid.Row="0"
+                Grid.Column="0"
+                Height="50"
+                VerticalAlignment="Top"
+                Background="{x:Null}"
+                Command="{Binding AddSubGoal}"
+                Content="Add"
+                FontSize="25" />
 
-                <StackPanel>
-                    <TextBlock
-                        Margin="0,25"
-                        HorizontalAlignment="Left"
-                        FontSize="32"
-                        Text="{Binding Goal.Name}" />
-                    <TextBlock HorizontalAlignment="Left" FontSize="20">
-                        <Run Text="{Binding Goal.Description}" />
-                    </TextBlock>
-                    <TextBlock HorizontalAlignment="Left" FontSize="20">
-                        <Run Text="Программа :" />
-                        <Run Text="{Binding Goal.Application}" />
-                    </TextBlock>
-                    <TextBlock HorizontalAlignment="Left" FontSize="20">
-                        <Run Text="Количество подзадач :" />
-                        <Run Text="??????" />
-                    </TextBlock>
-                    <TextBlock HorizontalAlignment="Left" FontSize="20">
-                        <Run Text="Количество выполненых задач :" />
-                        <Run Text="??????" />
-                    </TextBlock>
-                    <TextBlock HorizontalAlignment="Left" FontSize="20">
-                        <Run Text="Оценка успешности :" />
-                        <Run Text="??????" />
-                    </TextBlock>
-                    <TextBlock HorizontalAlignment="Left" FontSize="20">
-                        <Run Text="Еще шото я хуй  знает :" />
-                        <Run Text="??????" />
-                    </TextBlock>
-                </StackPanel>
-            </ScrollViewer>-->
-
-
-            <StackPanel Grid.Row="0" >
-                <Button
-                    Height="50"
-                    VerticalAlignment="Top"
+            <ScrollViewer
+                Grid.Row="1"
+                Grid.Column="0"
+                HorizontalScrollBarVisibility="Hidden"
+                VerticalScrollBarVisibility="Hidden">
+                <ListView
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    HorizontalContentAlignment="Left"
                     Background="{x:Null}"
-                    Command="{Binding AddSubGoal}"
-                    Content="Add"
-                    FontSize="25" />
-                <ScrollViewer Height="500">
-                    <ListView
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        HorizontalContentAlignment="Left"
-                        Background="{x:Null}"
-                        BorderBrush="{x:Null}"
-                        ItemsSource="{Binding SubGoals}"
-                        SelectedItem="{Binding SelectedSubGoal}">
+                    BorderBrush="{x:Null}"
+                    ItemsSource="{Binding SubGoals}"
+                    PreviewMouseWheel="ListViewGoals_PreviewMouseWheel"
+                    SelectedItem="{Binding SelectedSubGoal}">
 
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                                <Setter Property="VerticalContentAlignment" Value="Stretch" />
-                                <Setter Property="Margin" Value="0,15,0,0" />
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                    </ListView>
-                </ScrollViewer>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                            <Setter Property="Margin" Value="0,15,0,0" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </ScrollViewer>
 
-            </StackPanel>
 
             <Frame
+                Grid.Row="0"
+                Grid.RowSpan="2"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
                 Content="{Binding CurrentPage}" />

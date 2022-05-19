@@ -5,9 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2.View"
         xmlns:Control="clr-namespace:WpfApp2.Control" x:Class="WpfApp2.View.StudySession"
+        xmlns:vm="clr-namespace:WpfApp2.ViewModel"
         mc:Ignorable="d"
-        Title="StudySession" Height="450" Width="800">
+        Title="StudySession" Height="100" Width="250">
+<Window.DataContext>
+    <vm:StudySessionViewModel></vm:StudySessionViewModel>
+</Window.DataContext>
+
     <Grid>
+        
+
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#2C3E50" Offset="0.5"/>
@@ -17,6 +24,7 @@
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -25,8 +33,14 @@
         </Grid.ColumnDefinitions>
 
 
-        <Control:Timer/>
-
+        <Frame Grid.Row="0" Grid.Column="0" Content="{Binding Timer }"></Frame>
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <Label Content="{Binding SubGoal.Name}" FontSize="30"></Label>
+            <Label Content="{Binding SubGoal.CurrentTimeGoal}" FontSize="30"></Label>
+        </StackPanel>
+        <Button Grid.Row="1" Margin="10" Command="{Binding }"></Button>
+       
+        
 
     </Grid>
 </Window>

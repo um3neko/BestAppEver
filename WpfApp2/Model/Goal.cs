@@ -49,11 +49,20 @@ namespace WpfApp2.Model
     public class SubGoal : AbscractGoal
     {
         public static Int32 i;
+
+        private String _directoryOfProject;
+
+        public String DirectoryOfProject
+        {
+            get { return _directoryOfProject; }
+            set { _directoryOfProject = value; OnPropertyChanged(); }
+        }
+
         public SubGoal()
         {
             Name = $"SubGoal {i}";
             Description = $"SubGoal {i} Description";
-            
+            DirectoryOfProject = null;
             Sessions = 0;
             CurrentTimeGoal = 0;
             DateOfCreation = DateTime.Now;

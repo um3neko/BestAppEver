@@ -17,6 +17,7 @@ using WpfApp2.Data.GoalsCollection;
 using WpfApp2.Model;
 using WpfApp2.ViewModel.SecondPage;
 using WpfApp2.Model.Saving;
+using WpfApp2.View.CalendarView;
 using WpfApp2.View.FrameForSecondPage;
 
 namespace WpfApp2.ViewModel
@@ -27,6 +28,7 @@ namespace WpfApp2.ViewModel
         private static Page firstPage;
         private static Page secondPage;
         private static Page thirdPage;
+        private static Page fourthgPage;
 
         
         /// <summary>
@@ -39,6 +41,7 @@ namespace WpfApp2.ViewModel
             
             secondPage = new FrameForSecondPage();
             thirdPage = new View.ThirdPage();
+            fourthgPage = new CalendarPage();
 
             _stackPanelWidth = 150;
             CurrentOpacity = 1;
@@ -140,7 +143,19 @@ namespace WpfApp2.ViewModel
                 return new RelayCommand(() => Anime3(_stackPanelWidth));
             }
         }
-       
+
+        public ICommand fourthPage_Click
+        {
+            get
+            {
+                return new GalaSoft.MvvmLight.CommandWpf.RelayCommand(() =>
+                {
+                    Anime(fourthgPage);
+                });
+            }
+        }
+
+
 
     }
 }

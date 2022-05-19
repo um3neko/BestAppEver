@@ -48,6 +48,7 @@
                 NavigationUIVisibility="Hidden" />-->
 
             <ScrollViewer
+                VerticalScrollBarVisibility="Hidden"
                 Grid.Row="1"
                 Grid.RowSpan="3"
                 Grid.ColumnSpan="3">

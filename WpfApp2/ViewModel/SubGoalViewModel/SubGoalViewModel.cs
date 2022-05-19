@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,7 @@ namespace WpfApp2.ViewModel.SubGoalViewModel
     internal class SubGoalViewModel : ViewModelPageBase
     {
         public SubGoal SubGoal{get; }
+        
 
         public SubGoalViewModel(SubGoal subGoal)
         {
@@ -38,7 +41,18 @@ namespace WpfApp2.ViewModel.SubGoalViewModel
                 });
             }
         }
-        
+
+        public ICommand OpenFolder
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    Process.Start("explorer.exe", $"{SubGoal.DirectoryOfProject}");
+                });
+            }
+        }
+
 
         public ICommand AddAppCommand
         {

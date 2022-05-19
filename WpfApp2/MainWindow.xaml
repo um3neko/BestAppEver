@@ -68,6 +68,10 @@
                 Height="25"
                 Command="{Binding thirdPage_Click}"
                 Content="Third But" />
+            <Button
+                Height="25"
+                Command="{Binding fourthPage_Click}"
+                Content="Third But" />
 
         </StackPanel>
 

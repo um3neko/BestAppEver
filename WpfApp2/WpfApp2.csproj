@@ -83,6 +83,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Tulpep.NotificationWindow, Version=1.1.38.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tulpep.NotificationWindow.1.1.38\lib\net40\Tulpep.NotificationWindow.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -97,21 +100,18 @@
     </ApplicationDefinition>
     <Compile Include="ControlViewModel\GoalControlViewModel.cs" />
     <Compile Include="ControlViewModel\SubGoalUserControlViewModel.cs" />
-    <Compile Include="ControlViewModel\TimerViewModel\TimerViewModel.cs" />
     <Compile Include="Control\Goals.xaml.cs">
       <DependentUpon>Goals.xaml</DependentUpon>
     </Compile>
     <Compile Include="Control\SubGoalUserControl.xaml.cs">
       <DependentUpon>SubGoalUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Control\Timer\Timer.xaml.cs">
-      <DependentUpon>Timer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Data\GoalsCollection\GoalData.cs" />
     <Compile Include="Model\AbscractGoal.cs" />
     <Compile Include="Model\Goal.cs" />
     <Compile Include="Model\Saving\SerializationXml.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="ViewModel\CalendarPageViewModel\CalendarPageViewModel.cs" />
     <Compile Include="ViewModel\FrameForSecondPageViewModel\FrameForSecondPageViewModel.cs" />
     <Compile Include="ViewModel\GoalWindowViewModel\GoalSettingsViewModel.cs" />
     <Compile Include="ViewModel\GoalWindowViewModel\PageSettingsViewModel\PageSettingsViewModel.cs" />
@@ -124,6 +124,9 @@
     <Compile Include="ViewModel\ThirdPage\ThirdPageViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelPageBase.cs" />
+    <Compile Include="View\CalendarView\CalendarPage.xaml.cs">
+      <DependentUpon>CalendarPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\FrameForSecondPage\FrameForSecondPage.xaml.cs">
       <DependentUpon>FrameForSecondPage.xaml</DependentUpon>
     </Compile>
@@ -165,10 +168,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Control\Timer\Timer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -181,6 +180,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\CalendarView\CalendarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\FrameForSecondPage\FrameForSecondPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -300,6 +303,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\front-end.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\folder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

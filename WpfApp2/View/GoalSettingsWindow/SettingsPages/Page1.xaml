@@ -17,11 +17,8 @@
             <TextBox Text="{Binding SubGoal.Name}" Height="24"></TextBox>
             <TextBlock FontSize="20" Text="SubGoal Description" HorizontalAlignment="Center"></TextBlock>
             <TextBox Text="{Binding SubGoal.Description}" Height="25"></TextBox>
-
-            <TextBlock Margin="0,50,0,0"  FontSize="20" Text="Else" HorizontalAlignment="Center"></TextBlock>
-            <TextBox></TextBox>
-            <TextBlock FontSize="20" Text="Else" HorizontalAlignment="Center"></TextBlock>
-            <TextBox></TextBox>
+            <TextBlock FontSize="15" Text="Добавить путь к проекту" HorizontalAlignment="Center"></TextBlock>
+            <Button Height="20" Background="Brown" Command="{Binding OpenSubGoalsDirectoryFiles}"></Button>
             <TextBlock FontSize="20" Text="Else" HorizontalAlignment="Center"></TextBlock>
             <TextBox></TextBox>
         </StackPanel>

@@ -12,19 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp2.ControlViewModel;
+using WpfApp2.ViewModel.CalendarPageViewModel;
 
-namespace WpfApp2.Control
+namespace WpfApp2.View.CalendarView
 {
     /// <summary>
-    /// Логика взаимодействия для Timer.xaml
+    /// Логика взаимодействия для CalendarPage.xaml
     /// </summary>
-    public partial class Timer : UserControl
+    public partial class CalendarPage : Page
     {
-        public Timer()
+        public CalendarPage()
         {
             InitializeComponent();
-            DataContext = new TimerViewModel();
+            DataContext = new CalendarPageViewModel();
         }
     }
 }
