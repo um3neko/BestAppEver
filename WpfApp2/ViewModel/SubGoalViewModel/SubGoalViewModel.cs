@@ -42,7 +42,7 @@ namespace WpfApp2.ViewModel.SubGoalViewModel
             }
         }
 
-        public ICommand OpenFolder
+        public ICommand OpenFolderCommand
         {
             get
             {
@@ -53,6 +53,10 @@ namespace WpfApp2.ViewModel.SubGoalViewModel
             }
         }
 
+        public ICommand OpenCalendarCommand
+        {
+            get { return new RelayCommand(() => MessageBox.Show("Calendar")); }
+        }
 
         public ICommand AddAppCommand
         {

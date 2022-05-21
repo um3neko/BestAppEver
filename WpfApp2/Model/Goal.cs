@@ -51,11 +51,28 @@ namespace WpfApp2.Model
         public static Int32 i;
 
         private String _directoryOfProject;
-
         public String DirectoryOfProject
         {
             get { return _directoryOfProject; }
             set { _directoryOfProject = value; OnPropertyChanged(); }
+        }
+
+        private DateTime _deadLine;
+        public DateTime DeadLine
+        { 
+            get { return _deadLine; } 
+            set { _deadLine = value; OnPropertyChanged(); }
+        }
+
+        private bool _isCompleted;
+        public bool IsCompleted
+        {
+            get { return _isCompleted; }
+            set
+            {
+                _isCompleted = value;
+                OnPropertyChanged();
+            }
         }
 
         public SubGoal()
@@ -65,6 +82,7 @@ namespace WpfApp2.Model
             DirectoryOfProject = null;
             Sessions = 0;
             CurrentTimeGoal = 0;
+            IsCompleted = false;
             DateOfCreation = DateTime.Now;
             ++i;
         }

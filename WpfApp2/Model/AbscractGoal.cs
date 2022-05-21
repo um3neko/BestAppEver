@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace WpfApp2.Model
@@ -13,6 +8,8 @@ namespace WpfApp2.Model
     [Serializable]
     public abstract class AbscractGoal : INotifyPropertyChanged
     {
+        public static Int32 Id { get; set; }
+
         private String _name;
         public String Name
         {
@@ -51,7 +48,15 @@ namespace WpfApp2.Model
 
         public Int32 Sessions { get; set; }
         public Int32 Time { get; set; }
-        public Int32 CurrentTimeGoal { get; set; }
+
+        private Int32 _currentTime;
+        public Int32 CurrentTimeGoal
+        {
+            get { return _currentTime; }
+            set { _currentTime = value; OnPropertyChanged(); }
+        }
+
+
         public Int32 LVL { get; set; }
         public DateTime DateOfCreation { get; set; }
 

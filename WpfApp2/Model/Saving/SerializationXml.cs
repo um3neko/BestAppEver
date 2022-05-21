@@ -9,7 +9,7 @@ namespace WpfApp2.Model.Saving
 {
     internal static class SerializationXml
     {
-        public static async void SaveToXml(List<Goal> goals)
+        public static void SaveToXml(List<Goal> goals)
         {
             try 
             {
@@ -43,7 +43,7 @@ namespace WpfApp2.Model.Saving
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Не найден файл сохранений. Был создан новый.");
+                MessageBox.Show("Не найден файл сохранений. Был создан новый." + ex.ToString());
                 return goals;
 
             }

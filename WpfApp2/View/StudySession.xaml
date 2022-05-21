@@ -7,7 +7,7 @@
         xmlns:Control="clr-namespace:WpfApp2.Control" x:Class="WpfApp2.View.StudySession"
         xmlns:vm="clr-namespace:WpfApp2.ViewModel"
         mc:Ignorable="d"
-        Title="StudySession" Height="100" Width="250">
+        Title="StudySession" Height="200" Width="350">
 <Window.DataContext>
     <vm:StudySessionViewModel></vm:StudySessionViewModel>
 </Window.DataContext>
@@ -32,14 +32,17 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-
-        <Frame Grid.Row="0" Grid.Column="0" Content="{Binding Timer }"></Frame>
+        
+            
         <StackPanel Grid.Column="1" Grid.Row="0">
-            <Label Content="{Binding SubGoal.Name}" FontSize="30"></Label>
-            <Label Content="{Binding SubGoal.CurrentTimeGoal}" FontSize="30"></Label>
+            <Label Content="гоал:" FontSize="10"></Label>
+            <TextBlock Text="{Binding SubGoal.Name}" FontSize="15"></TextBlock>
+            <TextBlock Text="Current Time Goal : "></TextBlock>
+            <TextBlock Text="{Binding SubGoal.CurrentTimeGoal}" FontSize="15"></TextBlock>
+
         </StackPanel>
-        <Button Grid.Row="1" Margin="10" Command="{Binding }"></Button>
-       
+        <Button Grid.Row="1" Margin="10" Content="start" Command="{Binding StartTimerCommand }"></Button>
+        <Button Grid.Row="1" Margin="10" Grid.Column="1" Content="stop" Command="{Binding StopTimerCommand}"></Button>
         
 
     </Grid>
