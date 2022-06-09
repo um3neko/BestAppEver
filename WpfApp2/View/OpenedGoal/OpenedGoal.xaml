@@ -19,7 +19,7 @@
         <Grid>
             <Grid.RowDefinitions>
 
-                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.2*" />
                 <RowDefinition Height="0.8*" />
             </Grid.RowDefinitions>
 
@@ -29,17 +29,56 @@
                 <ColumnDefinition Width="0.3*" />
             </Grid.ColumnDefinitions>
 
+           
+            <StackPanel Grid.Row="0"
+                         Grid.Column="0"
+                         >
 
-            <Button
-                Grid.Row="0"
-                Grid.Column="0"
-                Height="50"
-                VerticalAlignment="Top"
-                Background="{x:Null}"
-                Command="{Binding AddSubGoal}"
-                Content="Add"
-                FontSize="25" />
+                <Button
+                    Height="25"
+                    VerticalAlignment="Top"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Foreground="White"
+                    FontStyle="Italic"
+                    Command="{Binding AddSubGoal}"
+                    Content="ADD"
+                    
+                    FontSize="15" />
+                <Button
+                    Height="25"
+                    VerticalAlignment="Top" 
+                    BorderBrush="{x:Null}"
+                    Foreground="White"
+                    FontStyle="Italic"
+                    Background="{x:Null}"
+                    Command="{Binding CompletedSubsCommand}"
+                    Content="Completed"
+                    FontSize="15" />
+                <Button
+                    Height="25"
+                    VerticalAlignment="Top"
+                    BorderBrush="{x:Null}"
+                    Foreground="White"
+                    FontStyle="Italic"
+                    Background="{x:Null}"
+                    Command="{Binding NotCompletedSubsCommand}"
+                    Content="Not Completed"
+                    FontSize="15" />
+                <Button
+                    Height="25"
+                    VerticalAlignment="Top"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Foreground="White"
+                    FontStyle="Italic"
+                    Command="{Binding AllSubCommand}"
+                    Content="All"
+                    FontSize="15" />
 
+            </StackPanel>
+
+          
             <ScrollViewer
                 Grid.Row="1"
                 Grid.Column="0"
@@ -49,7 +88,7 @@
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     HorizontalContentAlignment="Left"
-                    Background="{x:Null}"
+                    Background="Transparent"
                     BorderBrush="{x:Null}"
                     ItemsSource="{Binding SubGoals}"
                     PreviewMouseWheel="ListViewGoals_PreviewMouseWheel"
@@ -59,7 +98,6 @@
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                             <Setter Property="VerticalContentAlignment" Value="Stretch" />
-                            <Setter Property="Margin" Value="0,15,0,0" />
                         </Style>
                     </ListView.ItemContainerStyle>
                 </ListView>

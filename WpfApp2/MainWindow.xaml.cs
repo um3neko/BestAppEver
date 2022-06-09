@@ -26,19 +26,15 @@ namespace WpfApp2
     {
         public  MainWindow()
         {
-            
+            GoalData.ReadFromXml();
             InitializeComponent();
-
-            Goal.InitializationOfGoals();
-
             DataContext = new MainWindowViewModel();
-
-            
         }
 
 
-
-
-
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            GoalData.SaveToXml();
+        }
     }
 }

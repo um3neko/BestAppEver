@@ -13,10 +13,6 @@ namespace WpfApp2.ViewModel.GoalWindowViewModel
 {
     internal class GoalSettingsViewModel : ViewModelPageBase
     {
-        private Page1 page1;
-        private Page2 page2;
-        private Page3 page3;
-
         public SubGoal SubGoal { get; set; }
         public GoalSettingsViewModel()
         {

@@ -5,76 +5,105 @@
     xmlns:Control="clr-namespace:WpfApp2.Control"
     xmlns:command="http://www.galasoft.ch/mvvmlight"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:local="clr-namespace:WpfApp2"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:WpfApp2.ViewModel"
+    xmlns:yo="clr-namespace:WpfApp2"
     Title="MainWindow"
     Width="1400"
     Height="800"
+    Closed="Window_Closed"
     WindowStartupLocation="CenterScreen"
     WindowState="Normal"
     mc:Ignorable="d">
+
+
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
 
-    <i:Interaction.Triggers>
-        <i:EventTrigger EventName="Closing">
-            <command:EventToCommand Command="{Binding WindowClosing}" AlwaysInvokeCommand="True" PassEventArgsToCommand="True" />
-        </i:EventTrigger>
-    </i:Interaction.Triggers>
 
 
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                <GradientStop Color="#6C63FF" />
-                <GradientStop Offset="1" Color="#151716" />
-            </LinearGradientBrush>
-        </Grid.Background>
+    <Grid Background="Black">
+        
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-
+            <ColumnDefinition Width="0.07*" />
+            <ColumnDefinition Width="0.9*" />
         </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.05*" />
-            <RowDefinition Height="0.9*" />
-        </Grid.RowDefinitions>
+        <!--<Image Grid.Column="1" Source="Resources/1234.png"/>-->
+        <Image
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Opacity="0.4 "
+            Source="Resources/yosemite-national-park-yosemite-valley-landscape-sunset-6000x4000-7806.jpg"
+            Stretch="Fill" />
+        <Border
+            Grid.Row="0"
+            Grid.Column="0"
+            Opacity="0.4">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="Black" />
+                    <GradientStop Offset="1" Color="#6d3875" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
 
         <Frame
-            Grid.Row="1"
+            Grid.Column="1"
             Content="{Binding CurrentPage}"
             NavigationUIVisibility="Hidden"
             Opacity="{Binding CurrentOpacity}" />
 
+
+
         <StackPanel
-            Grid.Row="0"
             Grid.Column="0"
-            Orientation="Horizontal">
-
+            Margin="0,75,0,0"
+            Orientation="Vertical">
             <Button
-                Margin="550,0,0,0"
-                Height="25"
+                Height="70"
+                Background="{x:Null}"
+                Command="{Binding home_click}"
+                Style="{StaticResource Button1}">
+                <fa:ImageAwesome Icon="Home" Style="{StaticResource Angle1}" />
+            </Button>
+            <Button
+                Height="70"
+                Background="{x:Null}"
                 Command="{Binding firstPage_Click}"
-                Content="First But" />
+                Style="{StaticResource Button1}">
+                <fa:ImageAwesome Icon="ThumbTack" Style="{StaticResource Angle1}" />
+            </Button>
             <Button
-                Height="25"
+                Height="70"
+                Background="{x:Null}"
                 Command="{Binding secondPage_Click}"
-                Content="Second But" />
+                Style="{StaticResource Button1}">
+                <fa:ImageAwesome Icon="ListUl" Style="{StaticResource Angle1}" />
+            </Button>
             <Button
-                Height="25"
+                Height="70"
+                Background="{x:Null}"
                 Command="{Binding thirdPage_Click}"
-                Content="Third But" />
+                Style="{StaticResource Button1}">
+                <fa:ImageAwesome Icon="FileCodeOutline" Style="{StaticResource Angle1}" />
+            </Button>
             <Button
-                Height="25"
+                Height="70"
+                Background="{x:Null}"
                 Command="{Binding fourthPage_Click}"
-                Content="Third But" />
-
+                Style="{StaticResource Button1}">
+                <fa:ImageAwesome Icon="Calendar" Style="{StaticResource Angle1}" />
+            </Button>
         </StackPanel>
-
         
+        
+
+
     </Grid>
 </Window>

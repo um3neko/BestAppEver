@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using WpfApp2.ControlViewModel;
 using WpfApp2.Model;
 using WpfApp2.View;
+using WpfApp2.View.GoalSettingsWindow;
 using WpfApp2.ViewModel.SecondPage;
 
 namespace WpfApp2.Control
@@ -24,21 +25,14 @@ namespace WpfApp2.Control
     /// </summary>
     public partial class Goals : UserControl 
     {
-        
-        private Goal _goal;
-        public Goal Goal
-        {
-            get { return _goal; }
-        }
-
+        public Goal Goal { get; }
         public Goals(Goal goal)
         {
             InitializeComponent();
             DataContext = new GoalControlViewModel(goal);
-            _goal = goal;
+            Goal = goal;
             
         }
-       
-        
+
     }
 }

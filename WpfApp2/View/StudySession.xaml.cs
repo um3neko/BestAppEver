@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using WpfApp2.Model;
 using WpfApp2.ViewModel;
 
 namespace WpfApp2.View
@@ -8,11 +9,20 @@ namespace WpfApp2.View
     /// </summary>
     public partial class StudySession : Window
     {
-        public StudySession(Model.SubGoal sub)
+        private Model.SubGoal sub;
+        private Session session;
+        public StudySession(Session session, Model.SubGoal sub)
         {
             InitializeComponent();
-            DataContext = new StudySessionViewModel(sub);
+            DataContext = new StudySessionViewModel(session);
+            this.sub = sub;
+            this.session = session;
 
+        }
+
+        private void Window_Closed(object sender, System.EventArgs e)
+        {
+            sub.Time += session.Interval.Minutes;
         }
     }
 }

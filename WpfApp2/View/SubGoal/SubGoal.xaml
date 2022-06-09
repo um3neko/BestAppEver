@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
     xmlns:local="clr-namespace:WpfApp2.View.SubGoal"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:WpfApp2.ViewModel.SubGoalViewModel"
@@ -11,14 +12,12 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
 
-
     <Page.DataContext>
         <vm:SubGoalViewModel />
     </Page.DataContext>
     <Grid>
-
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
+            <ColumnDefinition Width="*" />
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
@@ -30,24 +29,27 @@
 
         <Image
             Grid.ColumnSpan="3"
-            Source="/Resources/qwer.jpg"
+            Opacity="0.5"
+            Source="/Resources/1131146.png"
             Stretch="Fill" />
+
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="2"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="40"
+            Foreground="White"
+            Text="{Binding SubGoal.IsCompleted}" />
+
         <TextBlock
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="3"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            FontSize="50"
-            Foreground="White"
-            Text="{Binding SubGoal.Description}" />
-        <TextBlock
-            Grid.Row="0"
-            Grid.Column="0"
-            Grid.ColumnSpan="3"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            FontSize="30"
+            FontStyle="Italic"
+            FontSize="60"
             Foreground="White"
             Text="{Binding SubGoal.Name}" />
 
@@ -111,31 +113,52 @@
                 Grid.Column="5"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
-                Command="{Binding OpenFolderCommand}">
+                Command="{Binding ThisCompleteCommand}">
                 <Image Source="/Resources/correct.png" />
             </Button>
-           
+        </Grid>
 
+        <Grid Grid.Row="3" Grid.ColumnSpan="3">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+               
+                <TextBlock Style="{StaticResource TextBlock}" Text="Уровень &gt;&gt;" />
+                <TextBlock Style="{StaticResource TextBlock}" Text="Время &gt;&gt;" />
+                <TextBlock Style="{StaticResource TextBlock}" Text="Количество сессий &gt;&gt;" />
+                <TextBlock Style="{StaticResource TextBlock}" Text="Приоритет &gt;&gt;" />
+                <TextBlock Style="{StaticResource TextBlock}" Text="Дедлайн &gt;&gt;" />
+                <TextBlock Style="{StaticResource TextBlock}" Text="Длительность последней сессии &gt;&gt;" />
+                <TextBlock Style="{StaticResource TextBlock}" Text="Дата создания &gt;&gt;" />
+                <TextBlock 
+                    Style="{StaticResource TextBlock}" 
+                   
+                    Text="Описание &gt;&gt;" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+               
+                <TextBlock Style="{StaticResource TextBlock}"  Text="{Binding SubGoal.LVL}" />
+                <TextBlock Style="{StaticResource TextBlock}" Text="{Binding SubGoal.Time}" />
+                <TextBlock Style="{StaticResource TextBlock}" Text="{Binding SubGoal.Sessions.Count}" />
+                <TextBlock Style="{StaticResource TextBlock}" Text="{Binding SubGoal.Priority}" />
+                <TextBlock Style="{StaticResource TextBlock}" Text="{Binding SubGoal.DeadLine}" />
+                <TextBlock Style="{StaticResource TextBlock}" Text="Yo" />
+                <TextBlock Style="{StaticResource TextBlock}" Text="{Binding SubGoal.DateOfCreation}" />
+                <TextBlock
+                    x:Name="Desc"
+                    Style="{StaticResource TextBlock}"
+                    Text="{Binding SubGoal.Description}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
 
         </Grid>
-        <StackPanel Grid.Row="2" Grid.Column="1">
-            <TextBlock FontSize="30" Text="{Binding SubGoal.Name}" />
-            <TextBlock FontSize="30" Text="App:" />
-            <TextBlock FontSize="30" Text="{Binding SubGoal.Application}" />
-            <TextBlock FontSize="30" Text="Directory of current project:" />
-            <TextBlock FontSize="30" Text="{Binding SubGoal.DirectoryOfProject}" />
-
-            <TextBlock FontSize="30" Text="Current Time Goal :" />
-            <TextBlock FontSize="30" Text="{Binding SubGoal.CurrentTimeGoal}" />
-            <TextBlock FontSize="30" Text="{Binding SubGoal.Description}" />
-            <TextBlock FontSize="30" Text="Lvl" />
-            <TextBlock FontSize="30" Text="{Binding SubGoal.LVL}" />
-            <TextBlock FontSize="30" Text="Sessions : " />
-            <TextBlock FontSize="30" Text="{Binding SubGoal.Sessions}" />
-            <TextBlock FontSize="30" Text="Time: " />
-            <TextBlock FontSize="30" Text="{Binding SubGoal.Time}" />
 
 
-        </StackPanel>
+
     </Grid>
 </Page>

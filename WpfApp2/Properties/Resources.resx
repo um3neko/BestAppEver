@@ -121,11 +121,20 @@
   <data name="calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Color_Wallpaper_Cover_Image_Amazing_620x388" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Color-Wallpaper-Cover-Image-Amazing-620x388.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="comboburst_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Contorl\GoalControl\comboburst-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="correct" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\correct.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="doroga_asfalt_dozhd_141217_1920x1080" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\doroga_asfalt_dozhd_141217_1920x1080.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Download_abstract_color_wallpaper_620x349" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Download-abstract-color-wallpaper-620x349.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -135,6 +144,9 @@
   </data>
   <data name="numberblat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\numberblat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pngtree_i_am_an_engineer_to_save_time_lets_just_assume_tshirt_png_image_2732904" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pngtree-i-am-an-engineer-to-save-time-lets-just-assume-tshirt-png-image_2732904.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="qwer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\qwer.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -150,5 +162,17 @@
   </data>
   <data name="yes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\yes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yosemite_national_park_yosemite_valley_landscape_sunset_6000x4000_7806" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yosemite-national-park-yosemite-valley-landscape-sunset-6000x4000-7806.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1131146" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1131146.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1234" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1234.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_200720201034388f1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\200720201034388f1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

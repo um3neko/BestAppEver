@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:WpfApp2.View.FrameForSecondPage"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:WpfApp2.ViewModel.FrameForSecondPageViewModel"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
     Title="FrameForSecondPage"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -16,13 +17,17 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.02*" />
+            <RowDefinition Height="25" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Button
-            Width="50"
+            Grid.Row="0"
             HorizontalAlignment="Left"
-            Command="{Binding ReturnCommand}" />
+            Style ="{StaticResource Button}"
+            Command="{Binding ReturnCommand}" >
+            <fa:ImageAwesome Icon="ArrowLeft" Style="{StaticResource Angle}"></fa:ImageAwesome>
+        </Button>
+
         <Frame
             Grid.Row="1"
             Content="{Binding CurrentPage}"

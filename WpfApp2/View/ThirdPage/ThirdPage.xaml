@@ -27,25 +27,10 @@
             <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
-
         </Grid.ColumnDefinitions>
-        <TextBlock
-            Text="{Binding Text}"
-            Grid.Row="2"
-            Grid.Column="1"
-            Background="Aquamarine"
-            FontSize="25"
-            Foreground="Black"
-            TextWrapping="Wrap" />
-        <TextBox
-            Text="{Binding Text}"
-            FontSize="25"
-            Grid.Row="0" 
-            Grid.Column="1" />
-        <Button
-            Grid.Row="1"
-            Grid.Column="1"
-            Command="{Binding HelloCommand}" />
+
+        
+        
 
     </Grid>
 </Page>

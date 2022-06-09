@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace WpfApp2.ViewModel
 {
   
-        internal abstract class ViewModelBase : INotifyPropertyChanged
+        public abstract class ViewModelBase : INotifyPropertyChanged
         {
 
             public event PropertyChangedEventHandler PropertyChanged;

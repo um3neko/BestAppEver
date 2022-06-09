@@ -17,11 +17,18 @@ namespace WpfApp2.ViewModel.SubGoalViewModel
     internal class SubGoalViewModel : ViewModelPageBase
     {
         public SubGoal SubGoal{get; }
+        private double _opacity;
+        public double Opacity
+        {
+            get { return _opacity;}
+            set { _opacity = value; OnPropertyChanged(); }
+        } 
         
 
         public SubGoalViewModel(SubGoal subGoal)
         {
             SubGoal = subGoal;
+            Opacity = 1.0;
 
         }
 
@@ -64,7 +71,7 @@ namespace WpfApp2.ViewModel.SubGoalViewModel
             {
                 return new RelayCommand(() =>
                 {
-                   
+
                     var fileDialog = new OpenFileDialog
                     {
                         Filter = "Exe Files (.exe)|*.exe|All Files (*.*)|*.*",
@@ -74,13 +81,38 @@ namespace WpfApp2.ViewModel.SubGoalViewModel
                     if (fileDialog.ShowDialog() == true)
                     {
                         SubGoal.Application = fileDialog.SafeFileName;
+                        SubGoal.ApplicationFull = fileDialog.FileName;
                     }
                     else
                     {
                         return;
                     }
-                    
-                    
+
+                });
+            }
+        }
+
+        private static int Counter = 0;
+        public ICommand ThisCompleteCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    if (Counter % 2 == 0)
+                    {
+                        SubGoal.IsCompleted = true;
+                        MessageBox.Show($"{SubGoal.Name} is Completed");
+                        Opacity = 0.4;
+                        Counter++;
+                    }
+                    else
+                    {
+                        SubGoal.IsCompleted = false;
+                        MessageBox.Show($"{SubGoal.Name} is Not Completed");
+                        Opacity = 1;
+                        Counter++;
+                    }
 
                 });
             }

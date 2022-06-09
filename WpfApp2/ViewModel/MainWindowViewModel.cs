@@ -30,7 +30,7 @@ namespace WpfApp2.ViewModel
         private static Page thirdPage;
         private static Page fourthgPage;
 
-        
+
         /// <summary>
         /// CTOR
         /// </summary>
@@ -38,14 +38,15 @@ namespace WpfApp2.ViewModel
         {
             //При запуске считывает XML
             firstPage = new View.FirstPage();
-            
             secondPage = new FrameForSecondPage();
             thirdPage = new View.ThirdPage();
             fourthgPage = new CalendarPage();
 
             _stackPanelWidth = 150;
             CurrentOpacity = 1;
-            
+
+           
+
         }
 
 
@@ -94,30 +95,15 @@ namespace WpfApp2.ViewModel
             set { _currentMargin = value; OnPropertyChanged(); }
         }
 
-        /// <summary>
-        /// WindowClosing
-        /// </summary>
-        public ICommand WindowClosing
-        {
-            get
-            {
-                return new RelayCommand<CancelEventArgs>(
-                    (args) =>
-                    {
-                        SerializationXml.SaveToXml(GoalData.GoalsSingletonCollection);
-                    });
-            }
-        }
-
 
         /// <summary>
         /// PAGES OPEN COMMANDS
         /// </summary>
         public ICommand firstPage_Click
         {
-                get
-                {
-                    return new RelayCommand(() => Anime(firstPage));
+            get
+            {
+                return new RelayCommand(() => Anime(firstPage));
             }
         }
 
@@ -151,6 +137,17 @@ namespace WpfApp2.ViewModel
                 return new GalaSoft.MvvmLight.CommandWpf.RelayCommand(() =>
                 {
                     Anime(fourthgPage);
+                });
+            }
+        }
+
+        public ICommand home_click
+        {
+            get
+            {
+                return new GalaSoft.MvvmLight.CommandWpf.RelayCommand(() =>
+                {
+                    Anime(null);
                 });
             }
         }

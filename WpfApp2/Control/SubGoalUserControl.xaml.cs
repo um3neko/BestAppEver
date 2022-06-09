@@ -22,7 +22,7 @@ namespace WpfApp2.Control
     /// </summary>
     public partial class SubGoalUserControl : UserControl
     {
-        public SubGoal SubGoal { get; }
+        public SubGoal SubGoal { get;  }
         public SubGoalUserControl(SubGoal subGoal)
         {
             InitializeComponent();

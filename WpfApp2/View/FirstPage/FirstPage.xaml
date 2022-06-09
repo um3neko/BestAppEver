@@ -5,17 +5,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WpfApp2.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:WpfApp2.ViewModel"
+    xmlns:syncfusion ="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
+
     Title="FirstPage"
     d:DesignHeight="800"
     d:DesignWidth="1050"
     mc:Ignorable="d">
-    <Grid>
-        <Image
-            Opacity="0.6"
-            Source="/View/09.jpg"
-            Stretch="Fill" />
-        <Grid>
 
+    <Page.DataContext>
+        <viewModel:FirstPageViewModel />
+    </Page.DataContext>
+
+    <Grid>
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.20*" />
                 <ColumnDefinition Width="1*" />
@@ -24,12 +27,15 @@
 
 
             <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Visible">
-                <StackPanel
-                    Grid.Column="1"
-                    Background="Silver"
-                    Opacity="1">
+                <StackPanel Grid.Column="1" Opacity="1">
+                    <StackPanel.Background>
+                        <LinearGradientBrush StartPoint="0.2,0" EndPoint="0.7,1">
+                            <GradientStop Color="Transparent" />
+                            <GradientStop Offset="1" Color="Black" />
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
 
-                    <Grid Background="Silver" ShowGridLines="True">
+                    <Grid ShowGridLines="True">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="160" />
                             <RowDefinition Height="400" />
@@ -53,7 +59,7 @@
                             <Image
                                 Grid.Column="0"
                                 Margin="20"
-                                Source="/View/09.jpg"
+                                Source="/Resources/FirstPage/09.jpg"
                                 Stretch="Fill" />
                             <TextBlock
                                 Grid.Column="1"
@@ -74,19 +80,55 @@
                             Margin="45"
                             Content="Редактировать" />
 
-                        <Image Grid.Row="1" Source="\Resources\FirstPage\eromanga.png" />
-                        <Image Grid.Row="2" Source="\Resources\FirstPage\eromanga.png" />
-                        <Image Grid.Row="3" Source="\Resources\FirstPage\eromanga.png" />
-                        <Image Grid.Row="4" Source="\Resources\FirstPage\eromanga.png" />
-                        <Image Grid.Row="5" Source="\Resources\FirstPage\eromanga.png" />
-                        <Slider
-                            x:Name="Slider"
-                            Maximum="19000"
-                            Minimum="0"
-                            Value="0" />
+
+                        <syncfusion:SfChart 
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Header="Chart" Height="300" Width="500">
+
+                            <!--Initialize the horizontal axis for SfChart-->
+                            <syncfusion:SfChart.PrimaryAxis>
+                                <syncfusion:CategoryAxis 
+                                    Header="Дней" 
+                                    Foreground="White"
+                                    FontSize="14"/>
+                            </syncfusion:SfChart.PrimaryAxis>
+
+                            <!--Initialize the vertical axis for SfChart-->
+                            <syncfusion:SfChart.SecondaryAxis>
+                                <syncfusion:NumericalAxis
+                                    Header="Целей" 
+                                    Foreground="White"
+                                    FontSize="14"/>
+                            </syncfusion:SfChart.SecondaryAxis>
+
+                            <!--Adding Legend to the SfChart-->
+                            <syncfusion:SfChart.Legend>
+                                <syncfusion:ChartLegend/>
+                            </syncfusion:SfChart.Legend>
+
+                            <!--Initialize the series for SfChart-->
+                            <syncfusion:ColumnSeries
+                                Label="Heights" 
+                                ItemsSource="{Binding Data}"
+
+                                XBindingPath="Name" 
+
+                                YBindingPath="Height" 
+
+                                ShowTooltip="True" >
+                                <syncfusion:ColumnSeries.AdornmentsInfo>
+                                    <syncfusion:ChartAdornmentInfo 
+                                        ShowLabel="True" >
+                                    </syncfusion:ChartAdornmentInfo>
+                                </syncfusion:ColumnSeries.AdornmentsInfo>
+                            </syncfusion:ColumnSeries>
+
+                        </syncfusion:SfChart>
 
 
-                    </Grid>
+
+</Grid>
                 </StackPanel>
             </ScrollViewer>
 

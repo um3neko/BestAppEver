@@ -1,27 +1,55 @@
-﻿<Page x:Class="WpfApp2.View.GoalSettingsWindow.SettingsPages.Page1"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:vm ="clr-namespace:WpfApp2.ViewModel.GoalWindowViewModel.PageSettingsViewModel"
-      xmlns:local="clr-namespace:WpfApp2.View.GoalSettingsWindow.SettingsPages"
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="200">
+﻿<Page
+    x:Class="WpfApp2.View.GoalSettingsWindow.SettingsPages.Page1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp2.View.GoalSettingsWindow.SettingsPages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pageSettingsViewModel="clr-namespace:WpfApp2.ViewModel.GoalWindowViewModel.PageSettingsViewModel"
+    xmlns:vm="[vm ]clr-namespace:WpfApp2.ViewModel.GoalWindowViewModel.PageSettingsViewModel"
+    d:DesignHeight="300"
+    d:DesignWidth="200"
+    mc:Ignorable="d">
 
     <Page.DataContext>
-        <vm:PageSettingsViewModel></vm:PageSettingsViewModel>
+        <pageSettingsViewModel:PageSettingsViewModel />
     </Page.DataContext>
     <Grid>
         <StackPanel>
-            <TextBlock FontSize="20" Text="SubGoal Name" HorizontalAlignment="Center"></TextBlock> 
-            <TextBox Text="{Binding SubGoal.Name}" Height="24"></TextBox>
-            <TextBlock FontSize="20" Text="SubGoal Description" HorizontalAlignment="Center"></TextBlock>
-            <TextBox Text="{Binding SubGoal.Description}" Height="25"></TextBox>
-            <TextBlock FontSize="15" Text="Добавить путь к проекту" HorizontalAlignment="Center"></TextBlock>
-            <Button Height="20" Background="Brown" Command="{Binding OpenSubGoalsDirectoryFiles}"></Button>
-            <TextBlock FontSize="20" Text="Else" HorizontalAlignment="Center"></TextBlock>
-            <TextBox></TextBox>
+
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="20"
+                Text="SubGoal Name" />
+            <TextBox Height="24" Text="{Binding SubGoal.Name}" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="20"
+                Text="SubGoal Description" />
+            <TextBox Height="25" Text="{Binding SubGoal.Description}" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="15"
+                Text="Добавить путь к проекту" />
+            <Button
+                Height="20"
+                Background="Brown"
+                Command="{Binding OpenSubGoalsDirectoryFiles}" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="20"
+                Text="Priory" />
+            <TextBox Height="20" Text="{Binding SubGoal.Priority}"></TextBox>
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="15"
+                Text="DeadLine" />
+            <DatePicker  SelectedDate="{Binding SubGoal.DeadLine}" >
+            </DatePicker>
+            
+
+
         </StackPanel>
-        
+
     </Grid>
 </Page>

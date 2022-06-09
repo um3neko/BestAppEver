@@ -5,6 +5,7 @@
     xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
     xmlns:cont="clr-namespace:WpfApp2.Control"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
     xmlns:local="clr-namespace:WpfApp2.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:secondPage="clr-namespace:WpfApp2.ViewModel.SecondPage"
@@ -28,30 +29,32 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="0.1*" />
                 <ColumnDefinition />
                 <ColumnDefinition Width="0.2*" />
             </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                <Button
-                    Width="64"
-                    Command="{Binding CreateGoalCommand}"
-                    Content="Add" />
-            </StackPanel>
-
-            <!--<Frame
-                Grid.Row="3"
+            <Button
+                Grid.Row="0"
+                HorizontalAlignment="Left"
                 Grid.Column="0"
-                Grid.ColumnSpan="3"
-                Content="{Binding CurrentPage}"
-                NavigationUIVisibility="Hidden" />-->
+                Command="{Binding CreateGoalCommand}"
+                Style="{StaticResource Button}">
+                <fa:ImageAwesome Icon="Plus" Style="{StaticResource Angle}" />
+            </Button>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="50,0,0,0"
+                HorizontalAlignment="Right"
+                FontSize="20"
+                Foreground="White"
+                Text="{Binding GetGoalsCollectionControl.Count}" />
 
             <ScrollViewer
-                VerticalScrollBarVisibility="Hidden"
                 Grid.Row="1"
                 Grid.RowSpan="3"
-                Grid.ColumnSpan="3">
+                Grid.Column="1"
+                VerticalScrollBarVisibility="Hidden">
                 <ListView
                     x:Name="ListViewGoals"
                     HorizontalAlignment="Stretch"
@@ -72,7 +75,6 @@
                     </ListView.ItemContainerStyle>
 
                 </ListView>
-
             </ScrollViewer>
 
 

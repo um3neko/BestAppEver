@@ -14,11 +14,14 @@
         <vm:GoalControlViewModel />
     </UserControl.DataContext>
 
-    <Grid>
+    <Grid >
         <Grid.Background>
-            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                <GradientStop Color="#63EEC5" />
-                <GradientStop Offset="0.9" Color="#A12699" />
+            <LinearGradientBrush
+                Opacity="0.5"
+                StartPoint="1.0,0" EndPoint="0.8,0">
+
+                <GradientStop Color="#A12699" />
+                <GradientStop Offset="0.9" Color="Black" />
             </LinearGradientBrush>
         </Grid.Background>
 
@@ -39,77 +42,85 @@
             Grid.Row="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            FontSize="12"
+            FontSize="20"
+            Foreground="White"
             Text="{Binding GoalInstance.DateOfCreation}" />
-        <Image
-            Grid.Row="0"
-            Grid.Column="0"
-            MinWidth="25"
-            MaxHeight="150"
-            Opacity="1"
-            Source="\Resources\Contorl\GoalControl\comboburst-1.png" />
-        <TextBlock
+        <TextBox
             Grid.Column="1"
             Grid.ColumnSpan="2"
             Margin="10,50,10,10"
+            Background="{x:Null}"
+            BorderBrush="{x:Null}"
             FontSize="20"
+            Foreground="White"
             Text="{Binding GoalInstance.Description}"
             TextWrapping="Wrap" />
-        <TextBlock
+        <TextBox
             Grid.Column="1"
             Grid.ColumnSpan="2"
             HorizontalAlignment="Center"
+            Background="{x:Null}"
+            BorderBrush="{x:Null}"
             FontSize="30"
+            Foreground="White"
             Text="{Binding GoalInstance.Name}"
             TextAlignment="Center" />
         <TextBlock
+            x:Name="Time"
             Grid.Row="1"
             Grid.Column="3"
-            Width="10"
-            Margin="0,10,0,10"
             HorizontalAlignment="Center"
-            FontSize="20"
-            Text="{Binding GoalInstance.Time}" />
+            FontSize="30"
+            Foreground="White"
+            Text="{Binding GetTime}" />
         <TextBlock
             Grid.Row="1"
             Grid.Column="1"
             Margin="25,0,0,0"
+            FontSize="20"
+            Foreground="White"
             Text="Sessions : " />
         <TextBlock
             Grid.Row="1"
             Grid.Column="1"
-            Margin="80,0,0,0"
-            Text="{Binding GoalInstance.Sessions}" />
+            Margin="150,0,0,0"
+            FontSize="20"
+            Foreground="White"
+            Text="{Binding GetSessions }" />
         <TextBlock
             Grid.Row="1"
             Grid.Column="2"
             Margin="25,0,0,0"
-            Text="Goal :" />
+            FontSize="20"
+            Foreground="White"
+            Text="SubGoals :" />
         <TextBlock
-            Grid.Row="1"
-            Grid.Column="2"
-            Margin="60,0,0,0"
-            Text="{Binding GoalInstance.CurrentTimeGoal}" />
+           Grid.Row="1"
+           Grid.Column="2"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Top"
+           FontSize="20"
+           Foreground="White"
+           Text="{Binding GoalInstance.SubGoals.Count}" Height="32" />
         <ProgressBar
             Grid.Row="1"
             Grid.Column="1"
             Grid.ColumnSpan="2"
             Margin="0,25,0,0"
-            Foreground="#FF4DE29A"
-            Value="1" />
+            Foreground="PaleVioletRed"
+            Maximum="60000"
+            Value="{Binding GetTime}"/>
 
 
         <Button
             Grid.Row="0"
             Grid.Column="3"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
             Width="75"
             Height="75"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
             Background="{x:Null}"
-            BorderBrush="{x:Null}">
-            <Image Source="/Resources/settings.png" />
-        </Button>
+            BorderBrush="{x:Null}" />
 
         <Grid Grid.Row="0" Grid.Column="3">
             <Grid.RowDefinitions>
@@ -121,15 +132,17 @@
                 Grid.Row="1"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                FontSize="16"
+                FontSize="20"
+                Foreground="White"
                 Text="LVL : " />
             <TextBlock
                 Grid.Row="1"
                 Margin="50,0,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                FontSize="16"
-                Text="{Binding GoalInstance.LVL}" />
+                FontSize="20"
+                Foreground="White"
+                Text="{Binding GetLvl}" />
 
         </Grid>
         <Button

@@ -12,8 +12,7 @@ namespace WpfApp2.ViewModel.FrameForSecondPageViewModel
         
         public FrameForSecondPageViewModel()
         {
-            SecondPage = new View.SecondPage();
-            Anime(SecondPage);
+            Anime(new View.SecondPage());
             Instance = this;
         }
 
@@ -31,7 +30,7 @@ namespace WpfApp2.ViewModel.FrameForSecondPageViewModel
             {
                 return new RelayCommand(() =>
                 {
-                    Anime(SecondPage);
+                    Anime(new View.SecondPage());
                     
                 });
             }

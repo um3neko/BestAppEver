@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
@@ -14,41 +15,52 @@ using WpfApp2.Model.Saving;
 namespace WpfApp2.Model
 {
     [Serializable]
-    public class Goal : AbscractGoal
+    public class Goal : AbstractGoal
     {
         public List<SubGoal> SubGoals { get; }
-
+        /// <summary>
+        /// COUNTER
+        /// </summary>
         private static Int32 i;
+
         public Goal()
         {
             SubGoals = new List<SubGoal>();
             Name = $"EXAMPLE NAME GOAL {i}";
             Description = $"Exaple {i} Exaple {i} Exaple {i} Exaple {i} Exaple {i} Exaple {i} Exaple {i} ";
-            CurrentTimeGoal = 0;
-            Sessions = 0;
-            Time = 0;
-            LVL = 1;
             DateOfCreation = DateTime.Now;
             ++i;
         }
+
+
         public SubGoal CreateSubGoal()
         {
             SubGoal sub = new SubGoal();
             SubGoals.Add(sub);
             return sub;
         }
-        
 
-        public static void InitializationOfGoals()
-        {
-            GoalData.GoalsSingletonCollection = SerializationXml.ReadFromXml();
-        }
-       
     }
     [Serializable]
-    public class SubGoal : AbscractGoal
+    public class SubGoal : Goal
     {
-        public static Int32 i;
+        private ObservableCollection<Session> _sessions;
+        public ObservableCollection<Session> Sessions
+        {
+            get { return _sessions; }
+            set
+            {
+                _sessions = value; 
+                OnPropertyChanged();
+            }
+        }
+        /// <summary>
+        /// COUNTER
+        /// </summary>
+        private static Int32 i;
+
+
+        
 
         private String _directoryOfProject;
         public String DirectoryOfProject
@@ -57,12 +69,14 @@ namespace WpfApp2.Model
             set { _directoryOfProject = value; OnPropertyChanged(); }
         }
 
-        private DateTime _deadLine;
-        public DateTime DeadLine
+        private DateTime? _deadLine;
+        public DateTime? DeadLine
         { 
             get { return _deadLine; } 
             set { _deadLine = value; OnPropertyChanged(); }
         }
+
+
 
         private bool _isCompleted;
         public bool IsCompleted
@@ -72,20 +86,49 @@ namespace WpfApp2.Model
             {
                 _isCompleted = value;
                 OnPropertyChanged();
+
+                if (IsCompleted == true)
+                {
+                   // OnSubGoalLvlUp();
+                }
+            }
+        }
+        
+        private Int32 _Priority;
+        public Int32 Priority
+        {
+            get { return _Priority; }
+            set
+            {
+                if (value >= 1 && value <= 10)
+                {
+                    _Priority = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
+        public void AddSession(Session ses)
+        {
+            Sessions.Add(ses);
+        }
+        
         public SubGoal()
         {
             Name = $"SubGoal {i}";
             Description = $"SubGoal {i} Description";
             DirectoryOfProject = null;
-            Sessions = 0;
-            CurrentTimeGoal = 0;
+            Sessions = new ObservableCollection<Session>();
             IsCompleted = false;
+            DeadLine = null;
+            Time = 0;
             DateOfCreation = DateTime.Now;
+            Priority = 0;
             ++i;
+            
         }
+
+        
     }
 
 }

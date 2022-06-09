@@ -11,14 +11,11 @@ using WpfApp2.View.OpenedGoal;
 
 namespace WpfApp2.ViewModel.SecondPage
 {
-    /// <summary>
-    /// ДОЛЖНЕН БЫЛ БЫТЬ ФРЕЙМ ДЛЯ ВТОРОЙ СТРАНИЦЫ,
-    /// НО ТЕПЕРЬ ЭТА ШТУКА ВЫВОДИТ СПИСОК ЦЕЛЕЙ
-    /// </summary>
+    
     internal class SecondWindowViewModel : ViewModelPageBase
     {
         /// <summary>
-        /// ТУТ ХРОНИТСО ВЫДЕЛЕННЫЙ КОНТРОЛ
+        /// Свойство хранит в себе выделеный контрол
         /// </summary>
         public Goals SelectedGoalsControl { get; set; }
 
@@ -37,9 +34,7 @@ namespace WpfApp2.ViewModel.SecondPage
         }
         private void UserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            
             FrameForSecondPageViewModel.FrameForSecondPageViewModel.Instance.CurrentPage = new OpenedGoal(SelectedGoalsControl.Goal);
-
         }
         
         public ObservableCollection<Goals> GetGoalsCollectionControl { get; }
@@ -54,7 +49,7 @@ namespace WpfApp2.ViewModel.SecondPage
                 return new RelayCommand(() =>
                 {
                     var goal = new Goal();
-                    GoalData.GoalsSingletonCollection.Add(goal);
+                    GoalData.Add(goal);
 
                     var goalControl = new Goals(goal);
                     goalControl.MouseDoubleClick += UserControl_MouseDoubleClick;

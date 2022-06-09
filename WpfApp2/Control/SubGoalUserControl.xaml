@@ -6,46 +6,26 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WpfApp2.Control"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:WpfApp2.ControlViewModel"
     d:DesignHeight="50"
     d:DesignWidth="500"
     mc:Ignorable="d">
 
-
     <UserControl.DataContext>
-        <controlViewModel:SubGoalUserControlViewModel />
+        <vm:SubGoalUserControlViewModel />
     </UserControl.DataContext>
 
-    <Grid>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*" />
-            <RowDefinition Height="0.7*" />
-
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.3*" />
-            <ColumnDefinition Width="0.7*" />
-
-        </Grid.ColumnDefinitions>
+    <StackPanel>
         <TextBlock
-            Grid.RowSpan="2"
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
             FontSize="20"
-            Text="{Binding SubGoalInstance.Name}"
-            TextAlignment="Center" />
+            FontStyle="Italic"
+            Foreground="White"
+            
+            Text="{Binding Sub.Name}" />
+    </StackPanel>
 
-        <Button
-            Grid.Row="1"
-            Grid.Column="1"
-            Width="0"
-            Height="0"
-            Margin="99,10,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Button" />
-    </Grid>
+
+
+
 </UserControl>

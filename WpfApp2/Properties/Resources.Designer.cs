@@ -63,9 +63,49 @@ namespace WpfApp2.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1131146 {
+            get {
+                object obj = ResourceManager.GetObject("_1131146", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1234 {
+            get {
+                object obj = ResourceManager.GetObject("_1234", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _200720201034388f1 {
+            get {
+                object obj = ResourceManager.GetObject("_200720201034388f1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap calendar {
             get {
                 object obj = ResourceManager.GetObject("calendar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Color_Wallpaper_Cover_Image_Amazing_620x388 {
+            get {
+                object obj = ResourceManager.GetObject("Color_Wallpaper_Cover_Image_Amazing_620x388", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,6 +126,26 @@ namespace WpfApp2.Properties {
         internal static System.Drawing.Bitmap correct {
             get {
                 object obj = ResourceManager.GetObject("correct", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap doroga_asfalt_dozhd_141217_1920x1080 {
+            get {
+                object obj = ResourceManager.GetObject("doroga_asfalt_dozhd_141217_1920x1080", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Download_abstract_color_wallpaper_620x349 {
+            get {
+                object obj = ResourceManager.GetObject("Download_abstract_color_wallpaper_620x349", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +176,16 @@ namespace WpfApp2.Properties {
         internal static System.Drawing.Bitmap numberblat {
             get {
                 object obj = ResourceManager.GetObject("numberblat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_i_am_an_engineer_to_save_time_lets_just_assume_tshirt_png_image_2732904 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree_i_am_an_engineer_to_save_time_lets_just_assume_tshirt_png_image_2732904", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +236,16 @@ namespace WpfApp2.Properties {
         internal static System.Drawing.Bitmap yes {
             get {
                 object obj = ResourceManager.GetObject("yes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yosemite_national_park_yosemite_valley_landscape_sunset_6000x4000_7806 {
+            get {
+                object obj = ResourceManager.GetObject("yosemite_national_park_yosemite_valley_landscape_sunset_6000x4000_7806", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
