@@ -70,14 +70,14 @@
                 Background="{x:Null}"
                 Command="{Binding home_click}"
                 Style="{StaticResource Button1}">
-                <fa:ImageAwesome Icon="Home" Style="{StaticResource Angle1}" />
+                <fa:ImageAwesome Icon="ThumbTack" Style="{StaticResource Angle1}" />
             </Button>
             <Button
                 Height="70"
                 Background="{x:Null}"
                 Command="{Binding firstPage_Click}"
                 Style="{StaticResource Button1}">
-                <fa:ImageAwesome Icon="ThumbTack" Style="{StaticResource Angle1}" />
+                <fa:ImageAwesome Icon="Home" Style="{StaticResource Angle1}" />
             </Button>
             <Button
                 Height="70"

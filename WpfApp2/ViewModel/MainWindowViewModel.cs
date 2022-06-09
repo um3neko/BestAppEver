@@ -17,6 +17,7 @@ using WpfApp2.Data.GoalsCollection;
 using WpfApp2.Model;
 using WpfApp2.ViewModel.SecondPage;
 using WpfApp2.Model.Saving;
+using WpfApp2.View;
 using WpfApp2.View.CalendarView;
 using WpfApp2.View.FrameForSecondPage;
 
@@ -103,7 +104,7 @@ namespace WpfApp2.ViewModel
         {
             get
             {
-                return new RelayCommand(() => Anime(firstPage));
+                return new RelayCommand(() => Anime(new FirstPage()));
             }
         }
 
@@ -118,7 +119,7 @@ namespace WpfApp2.ViewModel
         {
             get
             {
-                return new RelayCommand(() => Anime(thirdPage));
+                return new RelayCommand(() => MessageBox.Show("органайзер привычек в разработке"));
             }
         }
         

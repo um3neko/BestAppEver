@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using WpfApp2.Data.GoalsCollection;
 using WpfApp2.Model;
@@ -11,41 +12,63 @@ namespace WpfApp2.ViewModel
     {
         public FirstPageViewModel()
         {
-            
             Goal = new ObservableCollection<Goal>();
             SubGoal = new ObservableCollection<SubGoal>();
+            Session = new ObservableCollection<Session>();
+
+            
+
             SubGoal.Add(new SubGoal());
-            foreach (var goal in GoalData.GoalsSingletonCollection)
+            try
             {
-                Goal.Add(goal);
+                foreach (var goal in GoalData.GoalsSingletonCollection)
+                {
+                    Goal.Add(goal);
+                    foreach (var sub in goal.SubGoals)
+                    {
+                        SubGoal.Add(sub);
+                        foreach (var session in sub.Sessions)
+                        {
+                            Session.Add(session);
+                        }
+                    }
+                }
+                
             }
-
-
-            Peoples = new List<People>();
-            Peoples.Add(new People("aleg", 150));
-            Peoples.Add(new People("aleg", 250));
-            Peoples.Add(new People("aleg", 50));
+            catch (Exception ex)
+            {
+                throw new Exception("Exc");
+            }
         }
 
-        public Int32 Percent { get; set; } = 50;
         public ObservableCollection<Goal> Goal { get; set; }
         public ObservableCollection<SubGoal> SubGoal { get; set; }
+        public ObservableCollection<Session> Session { get; set; }
 
+        private SubGoal _topSubGoal;
 
-
-        public List<People> Peoples {get; set;}
-
-    }
-
-    public class People
-    {
-        public People(string s, Int32 i)
+        public SubGoal TopSubGoal
         {
-            Name = s;
-            Height = i;
+            get { return _topSubGoal; }
+            set
+            {
+                _topSubGoal = value;
+                OnPropertyChanged();
+            }
         }
-        public String Name { get; set; }
-        public Int32 Height { get; set; }
+        
+
+        public ObservableCollection<SubGoal> TopGoals { get; set; }
+
+        //private void TopGoalAndSubGoal()
+        //{
+        //    var topGoals = from p in people // передаем каждый элемент из people в переменную p
+        //        where p.ToUpper().StartsWith("T") //фильтрация по критерию
+        //        orderby p  // упорядочиваем по возрастанию
+        //        select p; // выбираем объект в создаваемую коллекцию
+        //}
     }
+
+   
 }
 
